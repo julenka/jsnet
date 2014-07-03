@@ -41,7 +41,8 @@
 }
 
 .hero_bottom img {
-    width: 75%;
+    height: 30px;
+    margin-bottom: 5px;
     margin-right: auto;
     margin-left: auto;
 }
@@ -108,4 +109,8 @@
     margin-left: 10px;
     color: #fff;
     border-bottom: 1px dotted #fff;
+}
+
+.text-muted a:hover {
+    text-decoration: none;
 }
