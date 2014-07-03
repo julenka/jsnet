@@ -1,0 +1,111 @@
+
+/** Index Header **/
+.top_wrapper_bg {
+    position:absolute;
+    z-index: -1;
+    background-repeat: repeat-x;
+}
+.top_wrapper_left {
+    background-image: url('../assets/banner_top_lg/banner_top_1170_left.png');
+}
+
+.top_wrapper_right {
+    background-repeat: repeat-x;
+    background-image: url('../assets/banner_top_lg/banner_top_1170_right.png');
+}
+.title {
+    margin-top: 170px;
+}
+
+.force_left {
+    padding-left: 0px;
+}
+.hero {
+    background-color: rgba(0,0,0,0.5);
+    padding: 15px;
+    border-radius: 6px;
+
+    /* box shadow */
+    /* http://www.cssmatic.com/box-shadow */
+    -webkit-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
+    box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
+}
+
+.hero_bottom {
+    margin-top: 20px;
+    width: 75%;
+    margin-right: auto;
+    margin-left: auto;
+
+}
+
+.hero_bottom img {
+    width: 75%;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.hero_bottom div {
+    text-align: center;
+}
+
+.hero_bottom p {
+    height: 100%;
+}
+
+.top_wrapper_center {
+    background-image: url('../assets/banner_top_lg/banner_top_1170_center.png');
+    background-repeat: no-repeat;
+    padding-bottom: 0px;
+    height: 513px;
+    color: white;
+}
+
+/** Main **/
+.card {
+    border-radius: 5px;
+    /* Rectangle 27: */
+    background: #FFFFFF;
+    -moz-box-shadow:    0px 0px 6px 0px rgba(3,2,2,0.40);
+    box-shadow:         0px 0px 6px 0px rgba(3,2,2,0.40);
+
+    padding: 15px;
+    line-height: 17px;
+
+    margin-top:15px;
+    margin-bottom:15px;
+}
+
+.bottom_spacing {
+    padding-bottom: 7px;
+}
+
+.icon {
+    vertical-align: middle;
+}
+
+.icon img {
+    display: inline-block;
+    height: 14px;
+}
+/** Footer **/
+#footer {
+    margin-top:30px;
+    width: 100%;
+    /* Set the fixed height of the footer here */
+    height: 60px;
+    background-color: #422E4B;
+    color: #fff;
+}
+
+.text-muted {
+    margin: 20px 0;
+    color: #fff;
+}
+
+.text-muted a {
+    margin-left: 10px;
+    color: #fff;
+    border-bottom: 1px dotted #fff;
+}

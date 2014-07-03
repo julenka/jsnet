@@ -1,0 +1,12 @@
+# Site settings
+title: Julia Schwarz
+description: "Julia Schwarz portfolio and personal website"
+baseurl: ""
+# TODO: change this when deploying the actual site
+url: "http://localhost:4000"
+twitter_username: julenka
+github_username:  julenka
+
+# Build settings
+markdown: kramdown
+permalink: pretty
