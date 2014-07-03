@@ -7,10 +7,11 @@ layout: default
 <div class="top_wrapper_right  top_wrapper_bg"></div>
 
 <div class="container">
+
     <!-- Hero -->
     <div class="top_wrapper_center">
         <div class="row">
-            <div class="col-md-5 col-md-offset-1 hero">
+            <div class="col-xs-10 col-md-5 col-xs-offset-1 hero">
                 <h1>Julia Schwarz</h1>
                 <div class="clearfix">Human-Computer Interaction PhD Student</div>
                 <p class="clearfix bottom_spacing">Director of R&D at Qeexo in Pittsburgh, PA</p>
@@ -49,22 +50,22 @@ layout: default
 
     <!-- Publications -->
     <div class="row">
-        <div class="col-sm-11 col-md-offset-1 force_left">
+        <div class="col-xs-11 col-xs-offset-1 force_left">
             <h3> Publications </h3>
         </div>
     </div>
     {% for page in site.categories.publications %}
         <div class="row">
-            <div class="col-sm-10 col-sm-offset-1 card">
+            <div class="col-xs-10 col-xs-offset-1 card">
                 <div class="row">
-                    <div class="col-sm-2">
+                    <div class="col-md-2 col-xs-3">
                         <img src="{{ page.icon | prepend: site.baseurl }}" class="img-responsive">
                     </div>
-                    <div class="col-sm-10">
+                    <div class="col-md-10 col-xs-9">
                         <div><strong> {{ site.categories.PUBLICATIONS.size - forloop.index }} {{ page.title }}</strong></div>
                         <div class="clearfix">{{ page.authors }}</div>
                         <div class="clearfix bottom_spacing">{{ page.proceedings }}</div>
-                        <div class="clearfix bottom_spacing">{{ page.excerpt }} </div>
+                        <div class="clearfix bottom_spacing hidden-sm hidden-xs">{{ page.excerpt }} </div>
                         <div class="clearfix">
                             <a href="{{ page.paper | prepend: site.baseurl }}" class="icon">
                                 <img class="img-responsive" src="assets/resume_black.svg"> paper
@@ -79,23 +80,23 @@ layout: default
 
     <!-- Applications & Utilities -->
     <div class="row">
-        <div class="col-sm-11 col-md-offset-1 force_left">
+        <div class="col-xs-11 col-xs-offset-1 force_left">
             <h3> Applications & Utilities </h3>
         </div>
     </div>
 
     {% for page in site.categories.appsandutilities %}
     <div class="row">
-        <div class="col-sm-10 col-sm-offset-1 card">
+        <div class="col-xs-10 col-xs-offset-1 card">
             <div class="row">
-                <div class="col-sm-2">
+                <div class="col-md-2 col-xs-3">
                     <img src="{{ page.icon | prepend: site.baseurl }}" class="img-responsive">
                 </div>
-                <div class="col-sm-10">
+                <div class="col-md-10 col-xs-9">
                     <div><strong> {{ page.title }}</strong></div>
                     <div class="clearfix">{{ page.authors }}</div>
                     <div class="clearfix bottom_spacing">{{ page.proceedings }}</div>
-                    <div class="clearfix bottom_spacing">{{ page.excerpt }} </div>
+                    <div class="clearfix bottom_spacing hidden-sm hidden-xs">{{ page.excerpt }} </div>
                     <div class="clearfix">
                         <a href="{{ page.link-url }}" class="icon">
                             <img class="img-responsive" src="{{ page.link-icon }}"> {{ page.link-title }}
@@ -128,7 +129,17 @@ layout: default
         $(".top_wrapper_right").width(window_width/2);
         $(".top_wrapper_right").offset({left: window_width/2, top: 0});
         $(".top_wrapper_right").height(top_height);
+
+        // resize the top banner if our window width is in 'medium' mode
+        if(window_width >= 1200 ) {
+            $(".top_wrapper_center").css("background-image", "url('../assets/banner_top_lg/banner_top_1170_center.png')");
+        } else if(window_width >= 992 ) {
+            $(".top_wrapper_center").css("background-image", "url('../assets/banner_top_lg/banner_top_940_center.png')");
+        } else {
+            $(".top_wrapper_center").css("background-image", "url('../assets/banner_top_lg/banner_top_720_center.png')");
+        }
     };
+
     $(window).load(function(){
         updateHero();
     });
