@@ -62,7 +62,7 @@ layout: default
                         <img src="{{ page.icon | prepend: site.baseurl }}" class="img-responsive">
                     </div>
                     <div class="col-md-10 col-xs-9">
-                        <div><strong> {{ site.categories.PUBLICATIONS.size - forloop.index }} {{ page.title }}</strong></div>
+                        <div><strong> {{ site.categories.publications.size | minus: forloop.index }}. {{ page.title }}  </strong></div>
                         <div class="clearfix">{{ page.authors }}</div>
                         <div class="clearfix bottom_spacing">{{ page.proceedings }}</div>
                         <div class="clearfix bottom_spacing hidden-sm hidden-xs">{{ page.excerpt }} </div>
