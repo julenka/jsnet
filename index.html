@@ -57,22 +57,28 @@ layout: default
     {% for page in site.categories.publications %}
         <div class="row">
             <div class="col-xs-10 col-xs-offset-1 card">
-                <div class="row">
-                    <div class="col-md-2 col-xs-3">
-                        <img src="{{ page.icon | prepend: site.baseurl }}" class="img-responsive">
-                    </div>
-                    <div class="col-md-10 col-xs-9">
-                        <div><strong> {{ site.categories.publications.size | minus: forloop.index }}. {{ page.title }}  </strong></div>
-                        <div class="clearfix">{{ page.authors }}</div>
-                        <div class="clearfix bottom_spacing">{{ page.proceedings }}</div>
-                        <div class="clearfix bottom_spacing hidden-sm hidden-xs">{{ page.excerpt }} </div>
-                        <div class="clearfix">
-                            <a href="{{ page.paper | prepend: site.baseurl }}" class="icon">
-                                <img class="img-responsive" src="assets/resume_black.svg"> paper
+
+                    <div class="row">
+                        <div class="col-md-2 col-xs-3">
+                            <a href="{{page.url}}" class="no-decoration">
+                                <img src="{{ page.icon | prepend: site.baseurl }}" class="img-responsive">
                             </a>
                         </div>
+                        <div class="col-md-10 col-xs-9">
+                            <a href="{{page.url}}" class="no-decoration">
+                                <div><strong> {{ site.categories.publications.size | minus: forloop.index }}. {{ page.title }}  </strong></div>
+                                <div class="clearfix">{{ page.authors }}</div>
+                                <div class="clearfix bottom_spacing">{{ page.proceedings }}</div>
+                                <div class="clearfix bottom_spacing hidden-sm hidden-xs">{{ page.excerpt }} </div>
+                            </a>
+                            <div class="clearfix">
+
+                                <a href="{{ page.paper | prepend: site.baseurl }}" class="icon-detail">
+                                    <img class="img-responsive" src="assets/resume_black.svg"> paper
+                                </a>
+                            </div>
+                        </div>
                     </div>
-                </div>
             </div>
         </div>
     {% endfor %}
@@ -89,20 +95,25 @@ layout: default
     <div class="row">
         <div class="col-xs-10 col-xs-offset-1 card">
             <div class="row">
-                <div class="col-md-2 col-xs-3">
-                    <img src="{{ page.icon | prepend: site.baseurl }}" class="img-responsive">
-                </div>
-                <div class="col-md-10 col-xs-9">
-                    <div><strong> {{ page.title }}</strong></div>
-                    <div class="clearfix">{{ page.authors }}</div>
-                    <div class="clearfix bottom_spacing">{{ page.proceedings }}</div>
-                    <div class="clearfix bottom_spacing hidden-sm hidden-xs">{{ page.excerpt }} </div>
-                    <div class="clearfix">
-                        <a href="{{ page.link-url }}" class="icon">
-                            <img class="img-responsive" src="{{ page.link-icon }}"> {{ page.link-title }}
+                    <div class="col-md-2 col-xs-3">
+                        <a href="{{page.url}}" class="no-decoration">
+                            <img src="{{ page.icon | prepend: site.baseurl }}" class="img-responsive">
                         </a>
+
                     </div>
-                </div>
+                    <div class="col-md-10 col-xs-9">
+                        <a href="{{page.url}}" class="no-decoration">
+                            <div><strong> {{ page.title }}</strong></div>
+                            <div class="clearfix">{{ page.authors }}</div>
+                            <div class="clearfix bottom_spacing">{{ page.proceedings }}</div>
+                            <div class="clearfix bottom_spacing hidden-sm hidden-xs">{{ page.excerpt }} </div>
+                        </a>
+                        <div class="clearfix">
+                            <a href="{{ page.link-url }}" class="icon-detail">
+                                <img class="img-responsive" src="{{ page.link-icon }}"> {{ page.link-title }}
+                            </a>
+                        </div>
+                    </div>
             </div>
         </div>
     </div>

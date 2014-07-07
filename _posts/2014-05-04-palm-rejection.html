@@ -7,4 +7,62 @@ authors: "Julia Schwarz, Robert Xiao, Jennifer Mankoff, Scott Hudson and Chris H
 proceedings: "In Proceedings of CHI ‘14"
 excerpt: "Presents a new algorithm for discriminating unintentional palm inputs from intentional pen inputs. This algorithm improves over existing palm rejection methods, reducing accidental palm inputs to 0.016 per pen stroke, while correctly passing 98% of stylus inputs."
 paper: "/papers/palmrejection.pdf"
+demo_video:
+presentation_pdf:
+presentation_keynote:
+talk_video:
+header_image: "/assets/palm-rejection/palm-rejection-header.png"
+citation: "Schwarz, J., Xiao, R., Mankoff, J., Hudson, S., Harrison, C. Probabilistic Palm Rejection Using Spatiotemporal Touch Features and Iterative Classification. In Proceedings of the 32nd Annual SIGCHI Conference on Human Factors in Computing Systems (Toronto, Canada, April 26 - May 1, 2014). CHI '14. ACM, New York, NY."
 ---
+
+<div class="row">
+    <div class="col-xs-12">
+        <h3>Abstract</h3>
+        <p>
+            Tablet computers are often called upon to emulate classical pen-and-paper input. However, touchscreens typically lack
+            the means to distinguish between legitimate stylus and finger touches and touches with the palm or other parts of
+            the hand. Users are then forced to rest their palms elsewhere or hover above the screen, resulting in ergonomic and
+            usability problems. We present a probabilistic touch filtering approach that uses the temporal evolution of touch
+            contacts to reject palms. Our system improves upon previous approaches, reducing accidental palm inputs to 0.016 per
+            pen stroke, while correctly passing 98% of stylus inputs.
+        </p>
+
+
+        <iframe class="center-block" width="640" height="360" src="//www.youtube.com/embed/uKJYT0eorRU?rel=0" frameborder="0" allowfullscreen></iframe>
+
+
+        <h3>Algorithm</h3>
+
+        <p>The <a href="{{site.url}}/{{page.paper}}">paper</a> provides a detailed explanation of the algorithm used, but below
+        is a bullet point overview of the algorithm's major components, along with an explanatory figure.</p>
+
+        <ul>
+            <li>Implemented for iOS, which as of iOS 8 provides <a href="https://developer.apple.com/library/prerelease/ios/documentation/UIKit/Reference/UITouch_Class/index.html#//apple_ref/occ/instp/UITouch/majorRadius">
+                touch area support</a>.</li>
+            <li>The most useful features used are touch area, touch velocity, distance to other touches.</li>
+            <li>After a touch occurs, perform classification using a binary decision tree every 50, 100, 150, ... , 500 ms. </li>
+            <li>Each tree is appropriately trained to use only data in that time window.</li>
+            <li>Use voting mechanism of current and previous results to get current classification, confidence.</li>
+            <li>After 500ms (or touch up, whichever occurs first), perform final classification and finalize either stroke or palm.</li>
+        </ul>
+    </div>
+</div>
+<div class="row">
+
+    <div class="col-xs-10 col-xs-offset-1">
+        <img src="{{site.url}}/assets/palm-rejection/palm-rejection-fig2.png" class="img-responsive">
+    </div>
+</div>
+<div class="row">
+    <div class="col-xs-12">
+        <h3>Application and Source Code</h3>
+        <p>Source code for the binary classifiers used and feature computation can be downloaded <a href="{{site.url}}/assets/palm-rejection/schwarz-julia-palmrjection-classify-features.zip">here</a>.</p>
+        <p>Application release date is planned for Fall 2014.</p>
+
+        <!--<h3>Other Media and images</h3>-->
+        <!--<p>Feel free to redistribute as you wish. I only ask that you post an acknowledgement and share your work by sending me an email. Photos courtesy of Jim Baur.</p>-->
+        <!--<img src="{{site.url}}/assets/palm-rejection/hello1.jpg" class="img-responsive">-->
+        <!--<img src="{{site.url}}/assets/palm-rejection/write1.jpg" class="img-responsive">-->
+        <!--<img src="{{site.url}}/assets/palm-rejection/write2.jpg" class="img-responsive">-->
+    </div>
+</div>
