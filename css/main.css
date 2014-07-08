@@ -97,9 +97,13 @@
     margin-bottom:15px;
 }
 
-a.no-decoration, a.no-decoration:hover{
+a.no-decoration{
     text-decoration: none;
     color: #333;
+}
+a.no-decoration:hover{
+    text-decoration: none;
+    color: #777;
 }
 
 .bottom_spacing {
@@ -120,7 +124,12 @@ a.no-decoration, a.no-decoration:hover{
 }
 
 .post-header {
+    margin-top:10px;
     border-radius: 8px;
+}
+
+.h-divider {
+    padding-right: 5px;
 }
 
 /** Footer **/
