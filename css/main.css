@@ -106,6 +106,10 @@ a.no-decoration, a.no-decoration:hover{
     padding-bottom: 7px;
 }
 
+.left_spacing {
+    padding_left: 7px;
+}
+
 .icon-detail {
     vertical-align: middle;
 }
@@ -118,7 +122,6 @@ a.no-decoration, a.no-decoration:hover{
 .post-header {
     border-radius: 8px;
 }
-
 
 /** Footer **/
 

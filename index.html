@@ -66,16 +66,49 @@ layout: default
                         </div>
                         <div class="col-md-10 col-xs-9">
                             <a href="{{page.url}}" class="no-decoration">
-                                <div><strong> {{ site.categories.publications.size | minus: forloop.index }}. {{ page.title }}  </strong></div>
+                                <div><strong> {{ site.categories.publications.size | minus: forloop.index | plus: 1}}. {{ page.title }}  </strong></div>
                                 <div class="clearfix">{{ page.authors }}</div>
                                 <div class="clearfix bottom_spacing">{{ page.proceedings }}</div>
                                 <div class="clearfix bottom_spacing hidden-sm hidden-xs">{{ page.excerpt }} </div>
                             </a>
                             <div class="clearfix">
-
-                                <a href="{{ page.paper | prepend: site.baseurl }}" class="icon-detail">
-                                    <img class="img-responsive" src="assets/resume_black.svg"> paper
+                                {% if page.paper %}
+                                <span class="glyphicon glyphicon-file"></span>
+                                <a href="{{site.baseurl}}/{{page.paper}}">
+                                    paper
                                 </a>
+                                {% endif %}
+
+                                {% if page.demo_video %}
+                                <span class="glyphicon glyphicon-film"></span>
+                                <a href="{{ page.demo_video }}">
+                                    demo
+                                </a>
+                                {% endif %}
+
+                                {% if page.demo_video %}
+                                <span class="glyphicon glyphicon-film"></span>
+                                <a href="{{ page.talk_video }}">
+                                    talk
+                                </a>
+                                {% endif %}
+
+                                {% if page.presentation_pdf %}
+                                <span class="glyphicon glyphicon-file"></span>
+                                <a href="{{site.baseurl}}/{{page.presentation_pdf}}">
+                                    talk (pdf)
+                                </a>
+                                {% endif %}
+
+                                {% if page.presentation_keynote %}
+                                <span class="glyphicon glyphicon-file"></span>
+                                <a href="{{site.baseurl}}/{{page.presentation_keynote}}">
+                                    talk (keynote)
+                                </a>
+                                {% endif %}
+
+
+
                             </div>
                         </div>
                     </div>
@@ -109,9 +142,19 @@ layout: default
                             <div class="clearfix bottom_spacing hidden-sm hidden-xs">{{ page.excerpt }} </div>
                         </a>
                         <div class="clearfix">
-                            <a href="{{ page.link-url }}" class="icon-detail">
-                                <img class="img-responsive" src="{{ page.link-icon }}"> {{ page.link-title }}
+                            {% if page.app_link %}
+                                <span class="glyphicon glyphicon-link"></span>
+                                <a href="{{site.baseurl}}/{{page.app_link}}">
+                                    view in app store
+                                </a>
+                            {% endif %}
+
+                            {% if page.library_link %}
+                            <span class="glyphicon glyphicon-link"></span>
+                            <a href="{{site.baseurl}}/{{page.library_link}}">
+                                view library
                             </a>
+                            {% endif %}
                         </div>
                     </div>
             </div>

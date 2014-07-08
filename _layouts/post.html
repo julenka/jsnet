@@ -29,12 +29,12 @@
                 <div class="clearfix bottom_spacing">{{ page.citation }}</div>
 
                 <div class="clearfix bottom_spacing">
-                    {{ unless page.paper.empty? }}
+                    {% if page.paper %}
+                    <span class="glyphicon glyphicon-file"></span>
                     <a href="{{site.baseurl}}/{{page.paper}}">
-                        <span class="glyphicon glyphicon-file"></span>
                         paper
                     </a>
-                    {{ endunless }}
+                    {% endif %}
                 </div>
             </div>
         </div>
