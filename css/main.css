@@ -24,7 +24,6 @@
 .hero {
     background-color: rgba(0,0,0,0.5);
     padding: 15px;
-    border-radius: 6px;
 
     /* box shadow */
     /* http://www.cssmatic.com/box-shadow */
@@ -82,9 +81,12 @@
     color: #fff;
 }
 
+.hero a.no-decoration, .hero a.no-decoration:hover{
+    text-decoration: none;
+    color: #fff;
+}
 
 .card {
-    border-radius: 5px;
     /* Rectangle 27: */
     background: #FFFFFF;
     -moz-box-shadow:    0px 0px 6px 0px rgba(3,2,2,0.40);
@@ -106,11 +108,17 @@ a.no-decoration:hover{
     color: #777;
 }
 
-.bottom_spacing {
-    padding-bottom: 7px;
+.bottom-spacing {
+    padding-bottom: 20px;
+}
+.bottom-spacing-small {
+    padding-bottom: 10px;
+}
+.top-spacing {
+    padding-top: 20px;
 }
 
-.left_spacing {
+.left-spacing {
     padding_left: 7px;
 }
 
@@ -125,7 +133,6 @@ a.no-decoration:hover{
 
 .post-header {
     margin-top:10px;
-    border-radius: 8px;
 }
 
 .h-divider {

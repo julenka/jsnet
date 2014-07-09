@@ -4,29 +4,29 @@
 {% include head.html %}
 
 <body>
-<!--<div class="navbar">-->
-    <!--<div class="container">-->
-        <!--<div class="row">-->
-            <!--<div class="col-xs-12">-->
-                <!--<a class="no-decoration" href="{{site.url}}">Julia Schwarz</a>-->
-            <!--</div>-->
+<div class="navbar">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12">
+                <a class="no-decoration" href="{{site.url}}">Julia Schwarz</a>
+            </div>
 
-        <!--</div>-->
-    <!--</div>-->
-<!--</div>-->
+        </div>
+    </div>
+</div>
 <div id="wrap">
     <div class="container">
         <div class="row">
             <div class="center-block col-xs-12">
-                <img src="{{site.url}}/{{page.header_image}}" class="img-responsive post-header">
+                <img src="{{site.url}}/{{page.header_image}} " class="img-responsive post-header bottom-spacing">
             </div>
         </div>
         <div class="row">
             <div class="col-xs-12">
                 <h3> {{ page.title }} </h3>
-                <div class="clearfix bottom_spacing">{{ page.citation }}</div>
+                <div class="clearfix bottom-spacing-small">{{ page.citation }}</div>
 
-                <div class="clearfix bottom_spacing">
+                <div class="clearfix bottom-spacing">
                     {% if page.paper %}
                     <span class="glyphicon glyphicon-file"></span>
                     <a href="{{site.baseurl}}/{{page.paper}}">

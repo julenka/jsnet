@@ -14,7 +14,7 @@ layout: default
             <div class="col-xs-10 col-md-5 col-xs-offset-1 hero">
                 <h1>Julia Schwarz</h1>
                 <div class="clearfix">Human-Computer Interaction PhD Student</div>
-                <p class="clearfix bottom_spacing">Director of R&D at Qeexo in Pittsburgh, PA</p>
+                <p class="clearfix bottom-spacing">Director of R&D at Qeexo in Pittsburgh, PA</p>
 
                 <p>
                     I specialize in building software that leverages data science, computer vision and machine learning to improve user interfaces.
@@ -23,25 +23,33 @@ layout: default
 
                 <div class="row hero_bottom">
                     <div class="col-xs-3">
-                        <img src="assets/resume.svg">
-                        <p>résumé</p>
+                        <a href="schwarzjulia_cv_june2014.pdf" class="no-decoration">
+                            <img src="assets/resume.svg">
+                            <p>cv</p>
+                        </a>
                     </div>
                     <div class="col-xs-3">
-                        <img src="assets/email.svg" >
-                        <p>email</p>
+                        <a href="mailto:julia.schwarz@cs.cmu.edu" class="no-decoration">
+                            <img src="assets/email.svg" >
+                            <p>email</p>
+                        </a>
                     </div>
                     <div class="col-xs-3">
-                        <img src="assets/google_scholar.svg">
-                        <p>
-                            scholar
-                        </p>
-                    </div>
-                    <div class="col-xs-3">
-                        <img src="assets/github.svg">
-                        <p>
-                            github
-                        </p>
+                        <a href="http://scholar.google.com/citations?user=Qdzson8AAAAJ&hl=en&oi=ao" class="no-decoration">
+                            <img src="assets/google_scholar.svg">
+                            <p>
+                                scholar
+                            </p>
+                        </a>
 
+                    </div>
+                    <div class="col-xs-3">
+                        <a href="https://github.com/julenka" class="no-decoration">
+                            <img src="assets/github.svg">
+                            <p>
+                                github
+                            </p>
+                        </a>
                     </div>
                 </div>
             </div>
@@ -76,8 +84,8 @@ layout: default
                                 <div><strong> {{ site.categories.publications.size | minus: forloop.index | plus: 1}}. {{ page.title }}  </strong></div>
                             </a>
                                 <div class="clearfix">{{ page.authors }}</div>
-                                <div class="clearfix bottom_spacing">{{ page.proceedings }}</div>
-                                <div class="clearfix bottom_spacing hidden-sm hidden-xs">{{ page.excerpt }} </div>
+                                <div class="clearfix bottom-spacing-small">{{ page.proceedings }}</div>
+                                <div class="clearfix bottom-spacing-small hidden-sm hidden-xs">{{ page.excerpt }} </div>
 
                             <div class="clearfix">
                                 {% if page.paper %}
@@ -130,7 +138,7 @@ layout: default
     <!-- Applications & Utilities -->
     <div class="row">
         <div class="col-xs-11 col-xs-offset-1 force_left">
-            <h3 id="apps"> Applications & Utilities </h3>
+            <h3 id="apps"> Notable Applications & Utilities </h3>
         </div>
     </div>
 
@@ -149,8 +157,8 @@ layout: default
                             <div><strong> {{ page.title }}</strong></div>
                         </a>
                             <div class="clearfix">{{ page.authors }}</div>
-                            <div class="clearfix bottom_spacing">{{ page.proceedings }}</div>
-                            <div class="clearfix bottom_spacing hidden-sm hidden-xs">{{ page.excerpt }} </div>
+                            <div class="clearfix bottom-spacing-small">{{ page.proceedings }}</div>
+                            <div class="clearfix bottom-spacing-small hidden-sm hidden-xs">{{ page.excerpt }} </div>
 
                         <div class="clearfix">
                             {% if page.app_link %}
