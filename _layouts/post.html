@@ -4,27 +4,34 @@
 {% include head.html %}
 
 <body>
-<div class="navbar">
-    <div class="container">
-        <div class="row">
-            <div class="col-xs-12">
-                <a class="no-decoration" href="{{site.url}}">Julia Schwarz</a>
-            </div>
+<div id="wrap">
+    <div class="navbar">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12">
+                    <a class="no-decoration" href="{{site.url}}">Julia Schwarz</a>
+                </div>
 
+            </div>
         </div>
     </div>
-</div>
-<div id="wrap">
     <div class="container">
+        {% if page.header_image %}
         <div class="row">
             <div class="center-block col-xs-12">
+
                 <img src="{{site.url}}/{{page.header_image}} " class="img-responsive post-header bottom-spacing">
+
             </div>
         </div>
+        {% endif %}
         <div class="row">
             <div class="col-xs-12">
                 <h3> {{ page.title }} </h3>
-                <div class="clearfix bottom-spacing-small">{{ page.citation }}</div>
+
+                {% if page.citation %}
+                    <div class="clearfix bottom-spacing-small">{{ page.citation }}</div>
+                {% endif %}
 
                 <div class="clearfix bottom-spacing">
                     {% if page.paper %}

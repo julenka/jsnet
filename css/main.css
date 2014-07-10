@@ -81,6 +81,10 @@
     color: #fff;
 }
 
+a.underline {
+    border-bottom: 1px dotted white;
+}
+
 .hero a.no-decoration, .hero a.no-decoration:hover{
     text-decoration: none;
     color: #fff;
