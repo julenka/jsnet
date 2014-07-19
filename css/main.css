@@ -67,17 +67,19 @@
 .navbar {
     /*margin-top:30px;*/
     width: 100%;
-    background-color: #422E4B;
-    color: #fff;
+    /*background-color: #FFFFFF;*/
+    /*background-color: #422E4B;*/
+    background-color: #8742A7;
     font-size: 18px;
     font-family: Helvetica Neue, Helvetica, Arial;
     font-weight: lighter;
     border-radius: 0px;
-    padding-top:10px;
+    padding-top:13px;
 }
 
 .navbar a.no-decoration, .navbar a.no-decoration:hover{
     text-decoration: none;
+    /*color: #422E4B;*/
     color: #fff;
 }
 
@@ -88,6 +90,10 @@ a.underline {
 .hero a.no-decoration, .hero a.no-decoration:hover{
     text-decoration: none;
     color: #fff;
+}
+
+.figure_caption {
+    text-align: center;
 }
 
 .card {

@@ -16,53 +16,109 @@ citation: "Schwarz, J., Xiao, R., Mankoff, J., Hudson, S., Harrison, C. Probabil
 ---
 
 <div class="row">
-    <div class="col-xs-12">
-        <h3>Summary</h3>
+    <div class="col-md-6 bottom-spacing">
         <p>
             Tablet computers are often called upon to emulate classical pen-and-paper input. However, touchscreens typically lack
-            the means to distinguish between legitimate stylus and finger touches and touches with the palm or other parts of
+            the means to distinguish between legitimate touches with the palm or other parts of
             the hand. Users are then forced to rest their palms elsewhere or hover above the screen, resulting in ergonomic and
-            usability problems. We present a probabilistic touch filtering approach that uses the temporal evolution of touch
-            contacts to reject palms. Our system improves upon previous approaches, reducing accidental palm inputs to 0.016 per
-            pen stroke, while correctly passing 98% of stylus inputs.
+            usability problems.
+        </p>
+        <p>
+            We developed an algorithm for distinguishing unintentional (palm) touches from intentional (stylus/finger)
+            touches. The algorithm uses machine learning to train decision trees that examine the evolution of basic touch properties (touch area, velocity, distance to other touches)
+            over short time sequences. Implementations are available for both iOS and Android.
+        </p>
+        <p>
+            We compared our iOS implementation against two iOS applications: <a href="http://bamboopaper.wacom.com/">
+            Bamboo Paper </a> and <a href="http://evernote.com/penultimate/">Penultimate</a>, and found that our
+            algorithm outperformed both applications, reducing accidental palm inputs to 0.016 per
+            pen stroke, while correctly passing 98% of stylus inputs. See our <a href="{{site.baseurl}}/{{page.paper}}">
+            paper</a> for details.
+        </p>
+        <p>
+            Palm rejection is a <a href="http://www.qeexo.com">Qeexo</a> technology. To arrange a demo, please email
+            <a href="mailto:info@qeexo.com">info@qeexo.com</a>.
+
         </p>
 
+    </div>
+    <div class="col-md-6">
+            <video class="img-responsive center-block" src="/assets/palm-rejection/demo_480p.mov" loop muted controls></video>
+            <div class="figure_caption top-spacing">
+                <small>Fig 1. Demonstration of palm rejection running on an iPad. The algorithm initially guesses palms as pads, then
+                    refines its guess as more data becomes available. </small>
+            </div>
+    </div>
 
-        <iframe class="center-block top-spacing bottom-spacing" width="640" height="360" src="//www.youtube.com/embed/uKJYT0eorRU?rel=0" frameborder="0" allowfullscreen></iframe>
-
-
-        <h3>Algorithm</h3>
-
-        <p>The <a href="{{site.url}}/{{page.paper}}">paper</a> provides a detailed explanation of the algorithm used, but below
-        is a bullet point overview of the algorithm's major components, along with an explanatory figure.</p>
-
+</div>
+<div class="row">
+    <div class="col-md-12">
+        <h3>How it Works</h3>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-6">
+        <p>To better understand the palm rejection algorithm, let's first take a look at what
+            your device sees when the hand is down (Figure 2). Here the green dot is the intentional input, and the blue dots
+            are unintentional palm inputs.</p>
+        <p>Several properties distinguishing intentional from unintentional inputs immediately jump out:</p>
         <ul>
-            <li>Implemented for iOS, which as of iOS 8 provides <a href="https://developer.apple.com/library/prerelease/ios/documentation/UIKit/Reference/UITouch_Class/index.html#//apple_ref/occ/instp/UITouch/majorRadius">
-                touch area support</a>.</li>
-            <li>The most useful features used are touch area, touch velocity, distance to other touches.</li>
-            <li>After a touch occurs, perform classification using a binary decision tree every 50, 100, 150, ... , 500 ms. </li>
-            <li>Each tree is appropriately trained to use only data in that time window.</li>
-            <li>Use voting mechanism of current and previous results to get current classification, confidence.</li>
-            <li>After 500ms (or touch up, whichever occurs first), perform final classification and finalize either stroke or palm.</li>
+            <li>Radius of the touch (<a href="https://developer.apple.com/library/prerelease/ios/documentation/UIKit/Reference/UITouch_Class/index.html#//apple_ref/occ/instp/UITouch/majorRadius">now available for iOS 8</a>!)</li>
+            <li>Speed of touch motion (palms tend to stay put)</li>
+            <li>Distance to other touches (palms are clumped together)</li>
         </ul>
+        <p>
+            Rather than examining these properties instantaneously (on touch down) and performing immediate classification,
+            our algorithm makes an initial guess, then refines this guess every 50 ms until 500 ms has elapsed, at which point
+            a final decision is made by examining the votes at each 50ms interval.
+        </p>
     </div>
-</div>
-<div class="row">
+    <div class="col-md-6">
 
-    <div class="col-xs-10 col-xs-offset-1 bottom-spacing top-spacing">
-        <img src="{{site.url}}/assets/palm-rejection/palm-rejection-fig2.png" class="img-responsive">
+        <video src="{{site.url}}/assets/palm-rejection/palm_raw_data1.mov" style="height: 200px" controls autoplay loop
+               class="center-block img-responsive top-spacing bottom-spacing"></video>
+
+        <div class="top-spacing figure_caption bottom-spacing">
+            <small>Fig 2. Visualization of what device sees when user is writing, resting their palm.</small>
+        </div>
     </div>
 </div>
 <div class="row">
-    <div class="col-xs-12">
-        <h3>Application and Source Code</h3>
+    <div class="col-md-6">
+
+
+        <p>
+            At each time step <em>t</em>, we examine touch point behavior over a time window from <em>-t</em> to <em>t</em>, taking
+            the mean, standard deviation, and range of the touch radius, touch velocity, and distance to other touches (Figure 2). These behavior
+            metrics, or <em>features</em> are then fed into a previously trained decision tree and a classification (intentional or
+            unintentional input) is made.
+        </p>
+        <p>
+            Performing regular classification has the benefit of providing a guess which can then be used to provide feedback to the
+            user, which might the be altered. Figure 1 shows a video of our application demonstrating this behavior: palm touches
+            are initially guessed as styluses and are later removed. Because in most cases the palm occludes these temporary guesses,
+            the user is often unaware of this guessing behavior.
+        </p>
+    </div>
+    <div class="col-md-6">
+
+
+        <img src="{{site.url}}/assets/palm-rejection/palm-rejection-fig2.png" class="img-responsive top-spacing">
+        <div class="top-spacing figure_caption">
+            <small>Fig 3. Classification is performed every 50ms. For every time interval <em>t</em> a window from <em>-t</em> to <em>t</em>
+                is examined.</small>
+        </div>
+
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-6">
+        <h3>Source Code</h3>
         <p>Source code for the binary classifiers used and feature computation can be downloaded <a href="{{site.url}}/assets/palm-rejection/schwarz-julia-palmrjection-classify-features.zip">here</a>.</p>
-        <p>Application release date is planned for Fall 2014.</p>
-
-        <!--<h3>Other Media and images</h3>-->
-        <!--<p>Feel free to redistribute as you wish. I only ask that you post an acknowledgement and share your work by sending me an email. Photos courtesy of Jim Baur.</p>-->
-        <!--<img src="{{site.url}}/assets/palm-rejection/hello1.jpg" class="img-responsive">-->
-        <!--<img src="{{site.url}}/assets/palm-rejection/write1.jpg" class="img-responsive">-->
-        <!--<img src="{{site.url}}/assets/palm-rejection/write2.jpg" class="img-responsive">-->
+    </div>
+    <div class="col-md-6">
+        <h3>Acknowledgements</h3>
+        Thank you to Sang Won Lee for allowing my colleagues and me to publish the work we performed at Qeexo.
     </div>
 </div>

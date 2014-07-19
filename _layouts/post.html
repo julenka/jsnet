@@ -9,7 +9,10 @@
         <div class="container">
             <div class="row">
                 <div class="col-xs-12">
-                    <a class="no-decoration" href="{{site.url}}">Julia Schwarz</a>
+                    <a class="no-decoration" href="{{site.url}}">
+                        <img src="/assets/avatar.svg" width="30px" height="30px" style="margin-top:-8px;">
+                        Julia Schwarz
+                    </a>
                 </div>
 
             </div>
@@ -35,40 +38,35 @@
                     {% if page.paper %}
                     <span class="glyphicon glyphicon-file"></span>
                     <a href="{{site.baseurl}}/{{page.paper}}">
-                        paper
-                    </a>
+                        paper</a>
                     <span class="h-divider"></span>
                     {% endif %}
 
                     {% if page.demo_video %}
                     <span class="glyphicon glyphicon-film"></span>
                     <a href="{{ page.demo_video }}">
-                        demo
-                    </a>
+                        video summary</a>
                     <span class="h-divider"></span>
                     {% endif %}
 
                     {% if page.talk_video %}
                     <span class="glyphicon glyphicon-film"></span>
                     <a href="{{ page.talk_video }}">
-                        talk
-                    </a>
+                        talk</a>
                     <span class="h-divider"></span>
                     {% endif %}
 
                     {% if page.presentation_pdf %}
                     <span class="glyphicon glyphicon-file"></span>
                     <a href="{{site.baseurl}}/{{page.presentation_pdf}}">
-                        talk (pdf)
-                    </a>
+                        talk (pdf)</a>
                     <span class="h-divider"></span>
                     {% endif %}
 
                     {% if page.presentation_keynote %}
                     <span class="glyphicon glyphicon-file"></span>
                     <a href="{{site.baseurl}}/{{page.presentation_keynote}}">
-                        talk (keynote)
-                    </a>
+                        talk (keynote)</a>
                     <span class="h-divider"></span>
                     {% endif %}
                 </div>
