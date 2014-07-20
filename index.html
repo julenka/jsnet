@@ -143,13 +143,22 @@ layout: default
         <div class="col-xs-10 col-xs-offset-1 card">
             <div class="row">
                     <div class="col-md-2 col-xs-3">
-                        <a href="{{page.url}}" class="no-decoration">
-                            <img src="{{ page.icon | prepend: site.baseurl }}" class="img-responsive">
+                        {% if page.override_link %}
+                            <a href="{{page.override_link}}" target="_blank" class="no-decoration">
+                        {% else %}
+                            <a href="{{page.url}}" class="no-decoration">
+                        {% endif %}
+                                <img src="{{ page.icon | prepend: site.baseurl }}" class="img-responsive">
                         </a>
 
                     </div>
                     <div class="col-md-10 col-xs-9">
-                        <a href="{{page.url}}" class="no-decoration">
+                        {% if page.override_link %}
+                            <a href="{{page.override_link}}" target="_blank" class="no-decoration">
+                        {% else %}
+                            <a href="{{page.url}}" class="no-decoration">
+                        {% endif %}
+
                             <div><strong> {{ page.title }}</strong></div>
                         </a>
                             <div class="clearfix">{{ page.authors }}</div>
