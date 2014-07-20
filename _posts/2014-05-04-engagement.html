@@ -1,20 +1,113 @@
 ---
 layout: post
-title:  "Combining Body Pose, Gaze and Motion to Determine Intention to Interact in Vision-Based Interfaces"
+title:  "Replacing 'Wave to Engage' on Xbox One by Combining Body Pose, Gaze and Motion to Determine Intention to Interact"
 category: publications
 icon: "/assets/cards/kinect.png"
 header_image: "/assets/engagement/engagement-header.png"
 authors: "Julia Schwarz, Charles Marais, Tommer Leyvand, Scott E. Hudson, Jennifer Mankoff"
 proceedings: "In Proceedings of CHI ‘14"
-excerpt: "This work helped to replace the ‘wave to engage’ gesture on Xbox One. It presents a new algorithm for determining when to pay attention to a user’s actions, and when to ignore them."
-paper: "/engagement/engagement-chi14-schwarz.pdf"
+excerpt: "This work helped to replace the ‘wave to engage’ gesture on Xbox One.
+It presents a new algorithm for determining when to pay attention to a user’s actions, and when to ignore them."
+paper: "assets/engagement/schwarz-chi14-engagement.pdf"
 demo_video: "http://www.youtube.com/watch?v=-p_Y_WXmGTw&feature=share&list=UUkSKRWCm-dcQe7YfftWRfHQ"
-presentation_pdf: "/engagement/engagement-chi14-presentation.pdf"
-presentation_keynote: "/engagement/engagement-chi14-presentation.key"
+presentation_pdf: "assets/engagement/engagement-chi14-presentation.pdf"
+citation: "Schwarz, J., Marais, C., Leyvand, T., Hudson, S., Mankoff, J.
+Combining Body Pose, Gaze and Motion to Determine Intention to Interact
+in Vision-Based Interfaces. In Proceedings of the 32nd Annual SIGCHI Conference on Human Factors in
+Computing Systems (Toronto, Canada, April 26 - May 1, 2014). CHI '14. ACM, New York, NY."
 ---
+
 <div class="row">
-    <div class="col-xs-12">
-        <p class="text-muted">image credit: <a href="http://marketplace.xbox.com/en-US/Product/Harry-Potter-for-Kinect/">Harry Potter for Kinect</a></p>
+    <div class="col-md-6 bottom-spacing">
+        <p>I performed this research while working as as researcher at Microsoft on the Xbox NUI Platform team. This is the team responsible
+        for developing the skeletal tracking algorithm, among other things. It was 11 months before the release of the Xbox One,
+        and our aim was to develop a simple but robust method to engage and disengage with the Kinect. The previous 'wave to engage'
+        gesture on Xbox 360 was robust but difficult to trigger. We wanted something simpler but which maintained the same low
+        false positive rate.</p>
+        <p>A colleague (Claude Marais) had developed a prototype that combined facial features, body pose and motion to generate
+            and 'intention to interact score' which approximated
+            a user’s intention to interact with the system. The idea was that this 'intention to interact' score could then be
+            combined with a simple gesture to determine engagement, and could be used in concert with a threshold to determine
+            disengagement.
+        </p>
+        <p>
+            I refined the initial algorithm and then ran a 30-person lab study to compare four engagement
+            algorithms in single and multi-user scenarios. I found that combining intention to interact with a
+            “raise an open hand in front of you” gesture yielded the best results. The latter approach offered
+            a 12% improvement in accuracy and a 20% reduction in time to engage over a baseline “wave to engage”
+            gesture currently used on the Xbox 360.
+        </p>
+        <p>
+            For details of the engagement algorithm, please see the <a href="{{site.baseurl}}/{{page.paper}}">
+            paper</a>.
+            The results of this work helped to replace the ‘wave to engage’ gesture on Xbox One. The gesture shipped as of
+            July 2014 is 'raise an open hand in front of you'.
+        </p>
+    </div>
+    <div class="col-md-6">
+        <iframe width="560" height="315" class="center-block" src="//www.youtube.com/embed/-p_Y_WXmGTw?rel=0" frameborder="0" allowfullscreen></iframe>
+        <div class="figure_caption top-spacing">
+            <small>Fig 1. Project Overview </small>
+        </div>
     </div>
 
+</div>
+<div class="row">
+    <div class="col-md-12">
+        <h3>Demonstrating Improvement over 'Wave to Engage'</h3>
+    </div>
+</div>
+<div class="row bottom-spacing">
+    <div class="col-md-6">
+
+        <p>The most difficult part of the project was running a user study to demonstrate the algorithm's improvement
+        over 'wave to engage' on Xbox 360. To do this, I did the following:</p>
+        <ul>
+            <li>Implement a port of the 'wave to engage' gesture from Xbox 360. One of the many perks of working at
+            Microsoft was having direct access to the code.</li>
+            <li>Implement intention to interact computation, along with all 4 methods of engagement.</li>
+            <li>Hook the engagement algorithms into a simple 'bop-the-mole' game used for the study, complete with
+            logging (I recorded everything so that I could replay runs later, which came in handy). This was done using
+            DirectX and an early version of the Kinect API for Xbox One. The study ran on an Xbox One.</li>
+            <li>Ran a 40-person lab study with tasks aiming to be as comprehensive as possible while remaining in the
+            confounds of a lab.</li>
+            <li>Analyze the massive amount of data, which included learning some new statistical tests and developing and running
+            a hypothetical engagement task (raise hand up without the score), which I then ran all my pre-recorded data against.</li>
+        </ul>
+        <p>A detailed description of the study, along with results are in the <a href="{{site.baseurl}}/{{page.paper}}">paper</a>,
+            but the short summary is that using
+        an engagement score does lead to faster engagement time compared to wave to engage, with engagement score + simple gesture
+        yielding the best results.</p>
+    </div>
+    <div class="col-md-6">
+        <img src="/assets/engagement/fig2-engage_time.png" class="img-responsive center-block">
+        <div class="figure_caption top-spacing">
+            Fig 2. Mean time to engage and disengage in single person study, across users. Bars represent 95% confidence
+            interval.
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-6 bottom-spacing">
+        <h3>Timeline</h3>
+        <p>November 2012 - Claude develops initial prototype and presents the prototype over a phone discussion.</p>
+        <p>January - February 2013 - I refine the prototype, run a formative study, develop the study code, run the study
+            and get material for the video over the course of two two-week long bursts of work.</p>
+        <p>March 2013 - Data analysis and writing takes about 2 more weeks, submit an initial version to UIST 2013. The paper is rejected.</p>
+        <p>September 2013 - I spend another week revising the analyses and writing, and submit to CHI 2014. Accepted!</p>
+        <p>May 2014 - The work is presented at CHI.</p>
+    </div>
+    <div class="col-md-6 bottom-spacing">
+        <h3>Acknowledgements</h3>
+        <p>Thank you to my manager at Microsoft, Tommer Leyvand, for letting me pursue and publish the work.</p>
+        <p>Thank you to Tyler Murphy for his illustration of Figure 1 in the paper.</p>
+        <p>Header image credit: <a href="http://marketplace.xbox.com/en-US/Product/Harry-Potter-for-Kinect/">Harry Potter for Kinect</a></p>
+    </div>
+</div>
+
+<!-- Generate some more breathing room near the bottom -->
+<div class="row">
+    <div class="col-xs-12  bottom-spacing">
+
+    </div>
 </div>
