@@ -8,20 +8,63 @@ proceedings: "In Proceedings of CHI ‘14"
 excerpt: "The core idea behind TouchTools is to draw upon user familiarity
  with tools from the real world and bring them to interactive surfaces. To invoke a tool, users replicate a
 tool’s real-world grasp and press it to the screen as though it were physically present."
-paper: "/papers/chi2014_touchtools.pdf"
+paper: "assets/touch-tools/harrison-chi14-touchtools.pdf"
 demo_video: "https://www.youtube.com/watch?v=N8s8NJf34fM"
 header_image: "/assets/touch-tools/allToolsFull.jpg"
 citation: "Harrison, C., Xiao, R., Schwarz, J., and Hudson, S. TouchTools: Leveraging Familiarity and Skill with Physical Tools to Augment Touch Interaction. In Proceedings of the 32nd Annual SIGCHI Conference on Human Factors in Computing Systems (Toronto, Canada, April 26 - May 1, 2014). CHI '14. ACM, New York, NY. 2913-2916."
 ---
 <div class="row">
     <div class="col-md-6">
-
+        <p>
+            TouchTools is a gesture design language and recognition engine that invokes tools or commands by mimicking
+            how we grab tools in the real world. It is a tiny step into the <a href="http://worrydream.com/ABriefRantOnTheFutureOfInteractionDesign/">
+            future of interaction design</a> as envisioned
+            by Bret Victor (we are, unfortunately, still touching glass).
+        </p>
+        <p>
+            A second contribution of TouchTools is the recognition algorithm. Rather than classifying on touch down,
+            we wait 50ms after an initial touch to allow all touches to hit the screen, then compute rotation-invariant
+            features on this set of points, and feed these into a support vector machine (SVM). Details are available
+            in the <a href="assets/touch-tools/harrison-chi14-touchtools.pdf">paper</a>.
+        </p>
+        <p>
+            To ensure credit is given where credit is due, much of the code for TouchTools was developed by <a href="http://robertxiao.ca/">
+            Robert Xiao</a>, I merely helped with some features and ran a study.
+            This work was very much a collaboration and I'm honored to have been a part of it.
+        </p>
+        <p>
+            Demos of TouchTools are available for both iOS and Android. To see a demo of this work, please contact info@qeexo.com
+        </p>
     </div>
+
     <div class="col-md-6 center-block bottom-spacing" >
         <div class="top-spacing visible-sm visible-xs"></div>
         <div style="padding-top: 5px" class="visible-lg visible-md"></div>
+        <iframe width="560" height="315" class="center-block" src="//www.youtube.com/embed/N8s8NJf34fM?rel=0" frameborder="0" allowfullscreen></iframe>
         <div class="figure_caption top-spacing">
-            <small> Caption goes here </small>
+            <small> Video Overview of TouchTools. Robert Xiao and I have additionaly ported TouchTools to Android and Windows platforms,
+            and have run the software on form factors ranging from tablets to interactive whiteboards.</small>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-6">
+        <h3>Timeline</h3>
+        <p>March 2013 - Robert builds initial TouchTools prototype in a three-day coding frenzy</p>
+        <p>April 2013 - Submission to UIST, rejected.</p>
+        <p>June - September 2013 - Additional development of TouchTools at Qeexo</p>
+        <p>September 2013 - Submission to CHI 2014, accepted!</p>
+        <p>May 2014 - TouchTools is presented at CHI 2014.</p>
+    </div>
+
+    <div class="col-md-6 center-block bottom-spacing" >
+        <div class="top-spacing visible-sm visible-xs"></div>
+        <div style="padding-top: 5px" class="visible-lg visible-md"></div>
+        <video src="{{site.url}}/assets/touch-tools/touchmouse_480.mp4" class="img-responsive center-block" controls></video>
+        <div class="figure_caption top-spacing">
+            <small>Using touchtools to emulate a mouse pointer on an Android tablet. A collaboration with Robert Xiao.
+            Temporary: will go on YouTube.
+            </small>
         </div>
     </div>
 </div>
