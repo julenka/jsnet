@@ -15,6 +15,9 @@ citation: "Schwarz, J., Mankoff, J., Hudson, S., Monte Carlo Methods for Managin
 ---
 <div class="row">
     <div class="col-md-6">
+        <p><em>Normally, for these explanations I start with a paper summary. But the topic of uncertain user
+            interfaces requires a bit more context, so first I will provide some background.
+        </em></p>
         <p>
             Current input handling systems provide effective techniques for modeling, tracking, interpreting,
             and acting on user input. However, new interaction technologies violate the standard assumption that
@@ -48,10 +51,15 @@ citation: "Schwarz, J., Mankoff, J., Hudson, S., Monte Carlo Methods for Managin
 </div>
     <div class="row">
         <div class="col-md-6">
-
+            <h3>Summary</h3>
             <p>
-                This paper presents a set of techniques for tracking the state of interactive objects
-                in the presence of uncertain inputs. These techniques use a Monte Carlo approach to maintain a
+                One challenge I ran into when implementing the demos for my <a href="{{site.baseurl}}/publications/2010/10/02/probabilistic-input/">
+                first paper</a> was that I found it difficult to
+                track that state of any user interface element that had more than two states. Because the input events were probabilistic,
+                it became difficult to manually track the likelihood of different states, especially as the state machines
+                became more complex. The aim of this paper was to extend and modify the initial architecture to
+                make it easy for developers to track the probabilistic state of user interface elements.
+                The key insight in this paper was to use  a Monte Carlo approach to maintain a
                 probabilistically accurate description of the user interface that can be used to make informed choices about
                 actions. Samples are used to approximate the distribution of possible inputs, possible interactor states that
                 result from inputs, and possible actions (callbacks and feedback) interactors may execute.
@@ -59,12 +67,12 @@ citation: "Schwarz, J., Mankoff, J., Hudson, S., Monte Carlo Methods for Managin
             <p>
                 Because each sample is certain, the developer can specify most of the behavior of interactors in a familiar,
                 non-probabilistic fashion. This approach retains all the advantages of maintaining information about uncertainty
-                while minimizing the need for the developer to work in probabilistic terms. We present a working implementation
-                of our framework and illustrate the power of these techniques within a paint program that includes three
+                while minimizing the need for the developer to work in probabilistic terms. This paper presents a working implementation
+                of our framework and illustrates the power of these techniques within a paint program that includes three
                 different kinds of uncertain input.
             </p>
             <p>
-                This is the second of two research papers that lay the foundations of my PhD thesis topic which aims to lay
+                This is the second of three research papers (one is not yet published) that aim to lay
                 the foundations for a radically new user interface architecture built to handle uncertain user inputs. The
                 image above presents a diagram aiming to explain the architecture, however for a deeper understanding please
                 see the <a href="{{site.baseurl}}/assets/monte-carlo/schwarz-uist11-montecarlo.pdf">paper</a>.
