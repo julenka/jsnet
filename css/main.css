@@ -69,7 +69,8 @@
     width: 100%;
     /*background-color: #FFFFFF;*/
     /*background-color: #422E4B;*/
-    background-color: #8742A7;
+    /*background-color: #8742A7;*/
+    background-color: #654199;
     font-size: 18px;
     font-family: Helvetica Neue, Helvetica, Arial;
     font-weight: lighter;
@@ -112,7 +113,8 @@ a.underline {
 a {
     /*color: #896CB1;*/
     /*color: #7C54B1;*/
-    color: #735B94;
+    /*color: #735B94;*/
+    color: #8956D1;
     /*color: #9C72D5;*/
 }
 a:hover {
@@ -201,8 +203,8 @@ body {
 #footer {
     /*margin-top:30px;*/
     width: 100%;
-    background-color: #eee;
-    color: #422E4B;
+    background-color: #DED6E9;
+    color: #111;
 }
 
 .text-muted {
@@ -212,8 +214,8 @@ body {
 
 .text-muted a {
     margin-left: 10px;
-    color: #422E4B;
-    border-bottom: 1px dotted #422E4B;
+    /*color: #422E4B;*/
+    /*border-bottom: 1px dotted #422E4B;*/
 }
 
 .text-muted a:hover {
