@@ -126,6 +126,11 @@ a.underline {
     max-height: 150px;
 }
 
+.card-first img {
+    max-width: 150px;
+    max-height: 150px;
+}
+
 a {
     /*color: #896CB1;*/
     /*color: #7C54B1;*/
@@ -189,6 +194,7 @@ a.no-decoration:hover{
 html,
 body {
     height: 100%;
+    font-family: "Segoe UI","proxima-nova","proxima-nova-1","proxima-nova-2","Proxima Nova",Helvetica,Arial,sans-serif
     /* The html and body elements cannot have any padding or margin. */
 }
 
