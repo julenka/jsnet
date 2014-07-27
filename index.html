@@ -206,20 +206,38 @@ layout: default
         hero.offset({left: new_left, top: new_top});
 
         var window_width = $(window).width();
-        $(".top_wrapper_left").width(window_width/2);
+        var hero_width;
+        if(window_width >= 1200 ) {
+            $(".top_wrapper_center").css('background-position', '0px -1026px');
+            hero_width = 1140;
+        } else if(window_width >= 992 ) {
+            $(".top_wrapper_center").css('background-position', '0px -513px');
+            hero_width = 940;
+        } else {
+            $(".top_wrapper_center").css('background-position', '0px 0px');
+            hero_width = 720;
+        }
+
+        var flank_width = (window_width - hero_width) / 2;
+        // we need to make sure that the left tile exactly matches the leftmost part of the image,
+        // therefore we need to offset the background so that we always start on an edge, from the right
+        var left_bg_tile_width = 144;
+        var left_bg_offset = left_bg_tile_width - flank_width % left_bg_tile_width;
+        $(".top_wrapper_left").width(flank_width);
         $(".top_wrapper_left").height(top_height);
+        $(".top_wrapper_left").css('background-position', '-' + left_bg_offset + 'px 0px');
+
         $(".top_wrapper_right").width(window_width/2);
         $(".top_wrapper_right").offset({left: window_width/2, top: 0});
         $(".top_wrapper_right").height(top_height);
 
         // resize the top banner if our window width is in 'medium' mode
-        if(window_width >= 1200 ) {
-            $(".top_wrapper_center").css("background-image", "url('../assets/banner_top_lg/banner_top_1170_center.png')");
-        } else if(window_width >= 992 ) {
-            $(".top_wrapper_center").css("background-image", "url('../assets/banner_top_lg/banner_top_940_center.png')");
-        } else {
-            $(".top_wrapper_center").css("background-image", "url('../assets/banner_top_lg/banner_top_720_center.png')");
-        }
+
+    };
+
+
+    var precacheHero = function(){
+
     };
 
     $(window).load(function(){
