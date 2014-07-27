@@ -121,16 +121,6 @@ a.underline {
     font-size: 20px;
 }
 
-.card img {
-    max-width: 150px;
-    max-height: 150px;
-}
-
-.card-first img {
-    max-width: 150px;
-    max-height: 150px;
-}
-
 a {
     /*color: #896CB1;*/
     /*color: #7C54B1;*/
