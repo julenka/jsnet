@@ -2,7 +2,7 @@
 layout: post
 title:  "Probabilistic Palm Rejection Using Spatiotemporal Touch Features and Iterative Classification"
 category: publications
-icon: "/assets/cards/palmrejection.png"
+icon: "assets/cards/palmrejection.png"
 authors: "Julia Schwarz, Robert Xiao, Jennifer Mankoff, Scott E. Hudson and Chris Harrison"
 proceedings: "In Proceedings of CHI ‘14"
 excerpt: "Presents a new algorithm for discriminating unintentional palm inputs from intentional pen inputs. This algorithm improves over existing palm rejection methods, reducing accidental palm inputs to 0.016 per pen stroke, while correctly passing 98% of stylus inputs."
@@ -10,7 +10,7 @@ paper: "assets/palm-rejection/schwarz-chi14-palmrejection.pdf"
 demo_video: "http://youtu.be/uKJYT0eorRU"
 talk_video: "http://youtu.be/WZ1uaoi2s9o"
 presentation_pdf: "assets/palm-rejection/palm-rejection-presentation.pdf"
-header_image: "/assets/palm-rejection/palm-rejection-header.png"
+header_image: "assets/palm-rejection/palm-rejection-header.png"
 citation: "Schwarz, J., Xiao, R., Mankoff, J., Hudson, S., Harrison, C. Probabilistic Palm Rejection Using Spatiotemporal
 Touch Features and Iterative Classification. In Proceedings of the 32nd Annual SIGCHI Conference on Human Factors in Computing Systems (Toronto, Canada, April 26 - May 1, 2014). CHI '14. ACM, New York, NY."
 ---
@@ -43,7 +43,7 @@ Touch Features and Iterative Classification. In Proceedings of the 32nd Annual S
 
     </div>
     <div class="col-md-6">
-            <video class="img-responsive center-block" src="/assets/palm-rejection/demo_480p.mov" loop muted controls></video>
+            <video class="img-responsive center-block" src="{{site.baseurl}}/assets/palm-rejection/demo_480p.mov" loop muted controls></video>
             <div class="figure_caption top-spacing">
                 <small>Figure 1. Demonstration of palm rejection running on an iPad. The algorithm initially guesses palms as pads, then
                     refines its guess as more data becomes available. </small>
@@ -75,7 +75,7 @@ Touch Features and Iterative Classification. In Proceedings of the 32nd Annual S
     </div>
     <div class="col-md-6">
 
-        <video src="{{site.url}}/assets/palm-rejection/palm_raw_data1.mov" style="height: 250px" controls  loop
+        <video src="{{site.baseurl}}/assets/palm-rejection/palm_raw_data1.mov" style="height: 250px" controls  loop
                class="center-block img-responsive top-spacing bottom-spacing"></video>
 
         <div class="top-spacing figure_caption bottom-spacing">
@@ -103,7 +103,7 @@ Touch Features and Iterative Classification. In Proceedings of the 32nd Annual S
     <div class="col-md-6">
 
 
-        <img src="{{site.url}}/assets/palm-rejection/palm-rejection-fig2.png" class="img-responsive top-spacing">
+        <img src="{{site.baseurl}}/assets/palm-rejection/palm-rejection-fig2.png" class="img-responsive top-spacing">
         <div class="top-spacing figure_caption">
             <small>Figure 3. Classification is performed every 50ms. For every time interval <em>t</em> a window from <em>-t</em> to <em>t</em>
                 is examined.</small>
@@ -115,7 +115,7 @@ Touch Features and Iterative Classification. In Proceedings of the 32nd Annual S
 <div class="row">
     <div class="col-md-6">
         <h3>Source Code</h3>
-        <p>Source code for the binary classifiers used and feature computation can be downloaded <a href="{{site.url}}/assets/palm-rejection/schwarz-julia-palmrjection-classify-features.zip">here</a>.</p>
+        <p>Source code for the binary classifiers used and feature computation can be downloaded <a href="{{site.baseurl}}/assets/palm-rejection/schwarz-julia-palmrjection-classify-features.zip">here</a>.</p>
     </div>
     <div class="col-md-6">
         <h3>Acknowledgements</h3>

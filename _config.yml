@@ -1,9 +1,8 @@
 # Site settings
 title: Julia Schwarz
 description: "Julia Schwarz portfolio and personal website"
-baseurl: ""
-# TODO: change this when deploying the actual site
-url: "http://localhost:4000"
+baseurl: "http://staging.juliaschwarz.net"
+url: "http://staging.juliaschwarz.net"
 twitter_username: julenka
 github_username:  julenka
 
