@@ -88,7 +88,13 @@ layout: default
     </div>
     {% for page in site.categories.publications %}
         <div class="row">
+            {% if forloop.index == 1 %}
+
+            <div class="col-xs-10 col-xs-offset-1 card-first">
+            {% else %}
             <div class="col-xs-10 col-xs-offset-1 card">
+            {% endif %}
+
 
                     <div class="row">
                         <div class="col-md-2 col-xs-3">
@@ -106,36 +112,37 @@ layout: default
 
                             <div class="clearfix">
                                 {% if page.paper %}
-                                <span class="glyphicon glyphicon-file"></span>
+
                                 <a href="{{site.baseurl}}/{{page.paper}}">
+                                    <span class="glyphicon glyphicon-file"></span>
                                     paper</a>
                                 <span class="h-divider"></span>
                                 {% endif %}
 
                                 {% if page.demo_video %}
-                                <span class="glyphicon glyphicon-film"></span>
                                 <a href="{{ page.demo_video }}">
+                                    <span class="glyphicon glyphicon-film"></span>
                                     video summary</a>
                                 <span class="h-divider"></span>
                                 {% endif %}
 
                                 {% if page.talk_video %}
-                                <span class="glyphicon glyphicon-film"></span>
                                 <a href="{{ page.talk_video }}">
+                                    <span class="glyphicon glyphicon-film"></span>
                                     talk</a>
                                 <span class="h-divider"></span>
                                 {% endif %}
 
                                 {% if page.presentation_pdf %}
-                                <span class="glyphicon glyphicon-file"></span>
                                 <a href="{{site.baseurl}}/{{page.presentation_pdf}}">
+                                    <span class="glyphicon glyphicon-file"></span>
                                     talk</a>
                                 <span class="h-divider"></span>
                                 {% endif %}
 
                                 {% if page.presentation_keynote %}
-                                <span class="glyphicon glyphicon-file"></span>
                                 <a href="{{site.baseurl}}/{{page.presentation_keynote}}">
+                                    <span class="glyphicon glyphicon-file"></span>
                                     talk (keynote)
                                 </a>
                                 <span class="h-divider"></span>
@@ -157,7 +164,12 @@ layout: default
 
     {% for page in site.categories.appsandutilities %}
     <div class="row">
-        <div class="col-xs-10 col-xs-offset-1 card">
+        {% if forloop.index == 1 %}
+
+            <div class="col-xs-10 col-xs-offset-1 card-first">
+        {% else %}
+            <div class="col-xs-10 col-xs-offset-1 card">
+        {% endif %}
             <div class="row">
                     <div class="col-md-2 col-xs-3">
                         {% if page.override_link %}
