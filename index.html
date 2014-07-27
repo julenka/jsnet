@@ -14,76 +14,26 @@ layout: default
             <div class="col-xs-10 col-md-5 col-xs-offset-1 hero">
                 <h1>Julia Schwarz</h1>
                 <div class="clearfix">PhD Student, Carnegie Mellon University</div>
-                <p class="clearfix bottom-spacing-small">Co-founder of <a href="http://www.qeexo.com" class="no-decoration underline">Qeexo</a></p>
+                <p class="clearfix bottom-spacing-small">Co-founder of <a href="http://www.qeexo.com">Qeexo</a></p>
 
-                <p>
-                    I build software that leverages data science, computer vision and machine learning to improve user interfaces.
-                    <!--I have worked in the domains of free-space and touch interfaces, among others.-->
+                <p>I specialize in building software that leverages data science, computer vision and machine learning to improve user interfaces.
+                    I have worked in the domains of touch and free-space input (among others), and developed a radically new user interface architecture for handling inputs with uncertainty.</p>
+                <p>Please see my <a href="schwarzjulia_cv_june2014.pdf"> CV</a> for an overview of my experience and accomplishments.
+                    I'm also fairly active on
+                    <a href="http://scholar.google.com/citations?user=Qdzson8AAAAJ&hl=en" target="_blank">Google Scholar</a>,
+                    <a href="http://www.github.com/julenka" target="_blank">GitHub</a>,
+                    <a href="http://www.twitter.com/julenka" target="_blank">Twitter</a>,
+                    <a href="http://stackoverflow.com/users/809040/julenka" target="_blank">StackOverflow</a>,
+                    and
+                    <a  href="https://www.linkedin.com/profile/view?id=27272275" target="_blank">LinkedIn</a>.
                 </p>
-                <!--<p>-->
-                    <!--My mission is to usher in a new era of intelligent interfaces can learn from past behavior and leverage context to better infer user intent.-->
-                <!--</p>-->
-
-                <!--<p>-->
-                    <!--I specialize in building software that leverages data science, computer vision and machine learning to improve user interfaces.-->
-                    <!--I have worked in the domains-->
-                    <!--<a href="{{site.baseurl}}/publications/2011/10/02/tapsense/" class="no-decoration underline">touch</a> and-->
-                    <!--<a href="{{site.baseurl}}/publications/2014/05/04/engagement/" class="no-decoration underline"> free-space input </a>, among others.-->
-
-                <!--</p>-->
-                <!--<p>-->
-                    <!--I have also developed a new <a href="" class="no-decoration underline"> user interface architecture</a>-->
-                    <!--which uses probabilities, not rules, to make decisions. This allows for the creation of-->
-                    <!--more intelligent interfaces that can adapt to our behaviors, predict future actions, and use context to-->
-                    <!--make better decisions.-->
-                <!--</p>-->
-
-                <div class="row hero_bottom">
-                    <div class="col-xs-3">
-                        <a href="schwarzjulia_cv_june2014.pdf" class="no-decoration">
-                            <img src="assets/resume.svg">
-                            <p>cv</p>
-                        </a>
-                    </div>
-                    <div class="col-xs-3">
-                        <a href="mailto:julia.schwarz@cs.cmu.edu" class="no-decoration">
-                            <img src="assets/email.svg" >
-                            <p>email</p>
-                        </a>
-                    </div>
-                    <div class="col-xs-3">
-                        <a href="http://scholar.google.com/citations?user=Qdzson8AAAAJ&hl=en&oi=ao" class="no-decoration" target="_blank">
-                            <img src="assets/google_scholar.svg">
-                            <p>
-                                scholar
-                            </p>
-                        </a>
-
-                    </div>
-                    <div class="col-xs-3">
-                        <a href="https://github.com/julenka" class="no-decoration" target="_blank">
-                            <img src="assets/github.svg">
-                            <p>
-                                github
-                            </p>
-                        </a>
-                    </div>
-                </div>
             </div>
         </div>
     </div>
 
-    <!-- Publications -->
-    <!--<div class="row">-->
-        <!--<p class="col-xs-12"></p>-->
-        <!--<div class="col-xs-10 col-xs-offset-1 force_left">-->
-            <!--Jump to <a href="#apps">Applications & Utilities</a>.-->
-        <!--</div>-->
-    <!--</div>-->
-
     <div class="row">
-        <div class="col-xs-11 col-xs-offset-1 force_left">
-            <h3> Publications <small> my output as a PhD student</small></h3>
+        <div class="col-xs-11 col-xs-offset-1">
+            <h2> Publications <small> my output as a PhD student</small></h2>
         </div>
     </div>
     {% for page in site.categories.publications %}
@@ -104,10 +54,10 @@ layout: default
                         </div>
                         <div class="col-md-10 col-xs-9">
                             <a href="{{page.url}}" class="no-decoration">
-                                <div><strong> {{ site.categories.publications.size | minus: forloop.index | plus: 1}}. {{ page.title }}  </strong></div>
+                                <div><h3> {{ page.title }}  </h3></div>
                             </a>
-                                <div class="clearfix">{{ page.authors }}</div>
-                                <div class="clearfix bottom-spacing-small">{{ page.proceedings }}</div>
+                                <div class="clearfix light">{{ page.authors }}</div>
+                                <div class="clearfix bottom-spacing-small light">{{ page.proceedings }}</div>
                                 <div class="clearfix bottom-spacing-small hidden-sm hidden-xs">{{ page.excerpt }} </div>
 
                             <div class="clearfix">
@@ -157,8 +107,8 @@ layout: default
 
     <!-- Applications & Utilities -->
     <div class="row">
-        <div class="col-xs-11 col-xs-offset-1 force_left">
-            <h3 id="apps"> Notable Side Projects <small>output from evenings and weekends</small></h3>
+        <div class="col-xs-11 col-xs-offset-1 ">
+            <h2 id="apps"> Notable Side Projects <small>output from evenings and weekends</small></h2>
         </div>
     </div>
 
@@ -188,11 +138,11 @@ layout: default
                             <a href="{{page.url}}" class="no-decoration">
                         {% endif %}
 
-                            <div><strong> {{ page.title }}</strong></div>
+                            <div><h3> {{ page.title }}</h3></div>
                         </a>
-                            <div class="clearfix">{{ page.authors }}</div>
-                            <div class="clearfix bottom-spacing-small">{{ page.proceedings }}</div>
-                            <div class="clearfix bottom-spacing-small hidden-sm hidden-xs">{{ page.excerpt }} </div>
+                            <div class="clearfi light">{{ page.authors }}</div>
+                            <div class="clearfix bottom-spacing-small light">{{ page.proceedings }}</div>
+                            <div class="clearfix bottom-spacing-small hidden-sm hidden-xs ">{{ page.excerpt }} </div>
 
                         <div class="clearfix">
                             {% if page.app_link %}
@@ -224,14 +174,14 @@ layout: default
     {% endfor %}
 
     <div class="row">
-        <div class="col-xs-offset-1 col-xs-10 force_left">
+        <div class="col-xs-offset-1 col-xs-10 ">
             <p class="force_left""> For more prior work, please see the <a href=" {{ "/archives" | prepend: site.baseurl }} ">archives</a>, which contain older sites and projects (before 2010).</p>
         </div>
 
     </div>
     <div class="row">
-        <div class="col-xs-offset-1 col-xs-10 force_left">
-            <p class="force_left" style="padding-bottom: 20px"> My other skills include
+        <div class="col-xs-offset-1 col-xs-10 ">
+            <p class="" style="padding-bottom: 20px"> My other skills include
                 <a href="https://www.youtube.com/watch?v=oFbtcwpJfrc">juggling</a>,
                 <a href="https://www.youtube.com/watch?v=ux_WZ8u_ydk">skiing</a>
                 , and
