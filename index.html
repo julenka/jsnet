@@ -136,7 +136,7 @@ layout: default
                                 {% if page.presentation_pdf %}
                                 <a href="{{site.baseurl}}/{{page.presentation_pdf}}">
                                     <span class="glyphicon glyphicon-file"></span>
-                                    talk</a>
+                                    slides</a>
                                 <span class="h-divider"></span>
                                 {% endif %}
 
@@ -196,23 +196,23 @@ layout: default
 
                         <div class="clearfix">
                             {% if page.app_link %}
-                                <span class="glyphicon glyphicon-link"></span>
                                 <a href="{{page.app_link}}">
+                                <span class="glyphicon glyphicon-link"></span>
                                     view in app store
                                 </a>
                             <span class="h-divider"></span>
                             {% endif %}
 
                             {% if page.library_link %}
-                            <span class="glyphicon glyphicon-link"></span>
                             <a href="{{page.library_link}}">
+                            <span class="glyphicon glyphicon-link"></span>
                                 view library
                             </a>
                             <span class="h-divider"></span>
                             {% endif %}
                             {% if page.demo_video %}
-                            <span class="glyphicon glyphicon-film"></span>
                             <a href="{{ page.demo_video }}">
+                                <span class="glyphicon glyphicon-film"></span>
                                 video summary</a>
                             <span class="h-divider"></span>
                             {% endif %}
