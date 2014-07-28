@@ -6,7 +6,7 @@ layout: default
 <div class="top_wrapper_left top_wrapper_bg"></div>
 <div class="top_wrapper_right  top_wrapper_bg"></div>
 
-<div class="container">
+<div class="container" id="home_container">
 
     <!-- Hero -->
     <div class="top_wrapper_center">
@@ -128,7 +128,7 @@ layout: default
                         {% else %}
                             <a href="{{page.url}}" class="no-decoration">
                         {% endif %}
-                                <img src="{{ page.icon | prepend: site.baseurl }}" class="img-responsive">
+                                <img src="{{site.baseurl}}/{{page.icon}}" class="img-responsive">
                         </a>
 
                     </div>
@@ -218,12 +218,20 @@ layout: default
             hero_width = 720;
         }
 
+        if(window_width < 770) {
+            // if the window is sufficiently small, the center image will
+            // start shrinking and the flanks will no longer match up.
+            // In this case, set their widths to zero so they don't appear, and make the
+            // Top banner full width by setting left and right padding to -15px
+            window_width = 0;
+        }
+
         var flank_width = (window_width - hero_width) / 2;
         // we need to make sure that the left tile exactly matches the leftmost part of the image,
         // therefore we need to offset the background so that we always start on an edge, from the right
         var left_bg_tile_width = 144;
         var left_bg_offset = left_bg_tile_width - flank_width % left_bg_tile_width;
-        $(".top_wrapper_left").width(flank_width);
+        $(".top_wrapper_left").width(window_width / 2);
         $(".top_wrapper_left").height(top_height);
         $(".top_wrapper_left").css('background-position', '-' + left_bg_offset + 'px 0px');
 
