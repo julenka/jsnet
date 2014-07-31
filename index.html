@@ -34,17 +34,16 @@ layout: default
 
     <div class="row">
         <div class="col-sm-11 col-sm-offset-1">
-            <h2> Publications <small class="hidden-xs"> my output as a PhD student</small></h2>
+            <h2> Publications <small> my output as a PhD student</small></h2>
         </div>
     </div>
     {% for page in site.categories.publications %}
         <div class="row">
             {% if forloop.index == 1 %}
-            <div class="col-sm-10 col-sm-offset-1 card-first">
+                <div class="col-sm-10 col-sm-offset-1 card-first">
             {% else %}
-            <div class="col-sm-10 col-sm-offset-1 card">
+                <div class="col-sm-10 col-sm-offset-1 card">
             {% endif %}
-
                     <div class="row">
                         <div class="col-md-2 col-sm-3">
                             <a href="{{page.url}}" >
@@ -58,7 +57,7 @@ layout: default
                             </a>
                                 <div class="clearfix light">{{ page.authors }}</div>
                                 <div class="clearfix bottom-spacing-small light">{{ page.proceedings }}</div>
-                                <div class="clearfix bottom-spacing-small hidden-sm hidden-xs">{{ page.excerpt }} </div>
+                                <div class="clearfix bottom-spacing-small ">{{ page.excerpt }} </div>
 
                             <div class="clearfix">
                                 {% if page.paper %}
@@ -107,7 +106,7 @@ layout: default
 
     <!-- Applications & Utilities -->
     <div class="row">
-        <div class="col-xs-11 col-xs-offset-1 ">
+        <div class="col-sm-10 col-sm-offset-1 ">
             <h2 id="apps"> Notable Side Projects <small>output from evenings and weekends</small></h2>
         </div>
     </div>
@@ -115,23 +114,23 @@ layout: default
     {% for page in site.categories.appsandutilities %}
     <div class="row">
         {% if forloop.index == 1 %}
-
-            <div class="col-xs-10 col-xs-offset-1 card-first">
+            <div class="col-sm-10 col-sm-offset-1 card-first">
         {% else %}
-            <div class="col-xs-10 col-xs-offset-1 card">
+            <div class="col-sm-10 col-sm-offset-1 card">
         {% endif %}
             <div class="row">
-                    <div class="col-md-2 col-xs-3">
+                    <div class="col-md-2 col-sm-3">
                         {% if page.override_link %}
                             <a href="{{page.override_link}}" target="_blank" class="no-decoration">
                         {% else %}
                             <a href="{{page.url}}" class="no-decoration">
                         {% endif %}
-                                <img src="{{site.baseurl}}/{{page.icon}}" class="img-responsive">
+                                <img src="{{site.baseurl}}/{{page.icon}}" class="img-responsive center-block">
                         </a>
 
                     </div>
-                    <div class="col-md-10 col-xs-9">
+                    <div class="col-md-10 col-sm-9">
+                        <div class="top-spacing bottom-spacing visible-xs"></div>
                         {% if page.override_link %}
                             <a href="{{page.override_link}}" target="_blank" class="no-decoration">
                         {% else %}
@@ -142,7 +141,7 @@ layout: default
                         </a>
                             <div class="clearfi light">{{ page.authors }}</div>
                             <div class="clearfix bottom-spacing-small light">{{ page.proceedings }}</div>
-                            <div class="clearfix bottom-spacing-small hidden-sm hidden-xs ">{{ page.excerpt }} </div>
+                            <div class="clearfix bottom-spacing-small">{{ page.excerpt }} </div>
 
                         <div class="clearfix">
                             {% if page.app_link %}
@@ -174,13 +173,13 @@ layout: default
     {% endfor %}
 
     <div class="row">
-        <div class="col-xs-offset-1 col-xs-10 ">
+        <div class="col-sm-offset-1 col-sm-10 ">
             <p class="force_left"> For more prior work, please see the <a href="{{site.baseurl}}/archives">archives</a>, which contain older sites and projects (before 2010).</p>
         </div>
 
     </div>
     <div class="row">
-        <div class="col-xs-offset-1 col-xs-10 ">
+        <div class="col-sm-offset-1 col-sm-10 ">
             <p class="" style="padding-bottom: 20px"> My other skills include
                 <a href="https://www.youtube.com/watch?v=oFbtcwpJfrc">juggling</a>,
                 <a href="https://www.youtube.com/watch?v=ux_WZ8u_ydk">skiing</a>
