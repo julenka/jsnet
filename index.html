@@ -33,27 +33,26 @@ layout: default
     </div>
 
     <div class="row">
-        <div class="col-xs-11 col-xs-offset-1">
-            <h2> Publications <small> my output as a PhD student</small></h2>
+        <div class="col-sm-11 col-sm-offset-1">
+            <h2> Publications <small class="hidden-xs"> my output as a PhD student</small></h2>
         </div>
     </div>
     {% for page in site.categories.publications %}
         <div class="row">
             {% if forloop.index == 1 %}
-
-            <div class="col-xs-10 col-xs-offset-1 card-first">
+            <div class="col-sm-10 col-sm-offset-1 card-first">
             {% else %}
-            <div class="col-xs-10 col-xs-offset-1 card">
+            <div class="col-sm-10 col-sm-offset-1 card">
             {% endif %}
 
-
                     <div class="row">
-                        <div class="col-md-2 col-xs-3">
+                        <div class="col-md-2 col-sm-3">
                             <a href="{{page.url}}" >
-                                <img src="{{site.baseurl}}/{{page.icon}}" class="img-responsive">
+                                <img src="{{site.baseurl}}/{{page.icon}}" class="img-responsive center-block side-img">
                             </a>
                         </div>
-                        <div class="col-md-10 col-xs-9">
+                        <div class="col-md-10 col-sm-9">
+                            <div class="top-spacing bottom-spacing visible-xs"></div>
                             <a href="{{page.url}}" class="no-decoration">
                                 <div><h3> {{ page.title }}  </h3></div>
                             </a>
@@ -206,6 +205,21 @@ layout: default
         hero.offset({left: new_left, top: new_top});
 
         var window_width = $(window).width();
+
+        // We must first update the background image before updating offsets because
+        // we are using the 'background' property
+        var background_center = "url('../assets/banner_top_lg/banner_top_center.jpg')";
+        var background_left = "url('../assets/banner_top_lg/banner_top_left.png')";
+        var background_right = "url('../assets/banner_top_lg/banner_top_right.png')";
+        if(window_width < 770) {
+            background_center = "#654099";
+            background_left = "#654099";
+            background_right = "#654099";
+        }
+        $(".top_wrapper_center").css('background', background_center);
+        $(".top_wrapper_left").css('background', background_left);
+        $(".top_wrapper_right").css('background', background_right);
+
         var hero_width;
         if(window_width >= 1200 ) {
             $(".top_wrapper_center").css('background-position', '0px -1026px');
@@ -218,13 +232,6 @@ layout: default
             hero_width = 720;
         }
 
-        if(window_width < 770) {
-            // if the window is sufficiently small, the center image will
-            // start shrinking and the flanks will no longer match up.
-            // In this case, set their widths to zero so they don't appear, and make the
-            // Top banner full width by setting left and right padding to -15px
-            window_width = 0;
-        }
 
         var flank_width = (window_width - hero_width) / 2;
         // we need to make sure that the left tile exactly matches the leftmost part of the image,

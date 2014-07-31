@@ -7,7 +7,7 @@
     background-repeat: repeat-x;
 }
 .top_wrapper_left {
-    background-image: url('../assets/banner_top_lg/banner_top_left.png');
+    background: url('../assets/banner_top_lg/banner_top_left.png');
 }
 
 .top_wrapper_right {
@@ -24,6 +24,11 @@
     padding-bottom: 0px;
     height: 513px;
     color: white;
+}
+
+#top_container {
+    padding-left: 0px;
+    padding-right: 0px;
 }
 
 
@@ -109,6 +114,11 @@ a.underline {
     padding-bottom: 30px;
     border-top: 1px solid rgba(100,100,100, 0.2);
     line-height: 17px;
+}
+
+img.side-img {
+    max-width: 150px;
+    max-height: 150px;
 }
 
 .card-first {
