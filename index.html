@@ -210,10 +210,11 @@ layout: default
         var background_center = "url('../assets/banner_top_lg/banner_top_center.jpg')";
         var background_left = "url('../assets/banner_top_lg/banner_top_left.png')";
         var background_right = "url('../assets/banner_top_lg/banner_top_right.png')";
+        var bg_color =  "#654099";
         if(window_width < 770) {
-            background_center = "#654099";
-            background_left = "#654099";
-            background_right = "#654099";
+            background_center = bg_color;
+            background_left = bg_color;
+            background_right = bg_color;
         }
         $(".top_wrapper_center").css('background', background_center);
         $(".top_wrapper_left").css('background', background_left);

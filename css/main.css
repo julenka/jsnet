@@ -6,20 +6,21 @@
     z-index: -1;
     background-repeat: repeat-x;
 }
-.top_wrapper_left {
-    background: url('../assets/banner_top_lg/banner_top_left.png');
+.top_wrapper_left, .top_wrapper_right, .top_wrapper_center {
+    /*background: url('../assets/banner_top_lg/banner_top_left.png');*/
+    /*background-color: #654099;*/
 }
 
 .top_wrapper_right {
     background-repeat: repeat-x;
     /*background-image: url('../assets/banner_top_lg/banner_top_1170_right.png');*/
-    background-image: url('../assets/banner_top_lg/banner_top_right.png');
+    /*background-image: url('../assets/banner_top_lg/banner_top_right.png');*/
 
 }
 
 .top_wrapper_center {
     background-position: 0px -1026px;
-    background-image: url('../assets/banner_top_lg/banner_top_center.jpg');
+    /*background-image: url('../assets/banner_top_lg/banner_top_center.jpg');*/
     background-repeat: no-repeat;
     padding-bottom: 0px;
     height: 513px;
