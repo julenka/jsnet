@@ -208,8 +208,8 @@ layout: default
         // We must first update the background image before updating offsets because
         // we are using the 'background' property
         var background_center = "url('../assets/banner_top_lg/banner_top_center.jpg')";
-        var background_left = "url('../assets/banner_top_lg/banner_top_left.png')";
-        var background_right = "url('../assets/banner_top_lg/banner_top_right.png')";
+        var background_left = "url('../assets/banner_top_lg/banner_top_left.jpg')";
+        var background_right = "url('../assets/banner_top_lg/banner_top_right.jpg')";
         var bg_color =  "#654099";
         if(window_width < 770) {
             background_center = bg_color;
@@ -253,5 +253,6 @@ layout: default
     $(window).load(function(){
         updateHero();
     });
+
     $(window).resize(updateHero);
 </script>
