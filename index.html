@@ -39,11 +39,13 @@ layout: default
     </div>
     {% for page in site.categories.publications %}
         <div class="row">
-            {% if forloop.index == 1 %}
-                <div class="col-sm-10 col-sm-offset-1 card-first">
-            {% else %}
+                {% if forloop.index > 1 %}
+                <div class="col-sm-10 col-sm-offset-1">
+                    <hr>
+                </div>
+                {% endif %}
                 <div class="col-sm-10 col-sm-offset-1 card">
-            {% endif %}
+
                     <div class="row">
                         <div class="col-md-2 col-sm-3">
                             <a href="{{page.url}}" >
@@ -113,12 +115,13 @@ layout: default
 
     {% for page in site.categories.appsandutilities %}
     <div class="row">
-        {% if forloop.index == 1 %}
-            <div class="col-sm-10 col-sm-offset-1 card-first">
-        {% else %}
+            {% if forloop.index > 1 %}
+            <div class="col-sm-10 col-sm-offset-1">
+                <hr>
+            </div>
+            {% endif %}
             <div class="col-sm-10 col-sm-offset-1 card">
-        {% endif %}
-            <div class="row">
+                <div class="row">
                     <div class="col-md-2 col-sm-3">
                         {% if page.override_link %}
                             <a href="{{page.override_link}}" target="_blank" class="no-decoration">
@@ -173,6 +176,15 @@ layout: default
     {% endfor %}
 
     <div class="row">
+
+        <div class="top-spacing bottom-spacing">
+        </div>
+
+    </div>
+
+
+    <div class="row">
+
         <div class="col-sm-offset-1 col-sm-10 ">
             <p class="force_left"> For more prior work, please see the <a href="{{site.baseurl}}/archives">archives</a>, which contain older sites and projects (before 2010).</p>
         </div>
