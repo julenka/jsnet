@@ -5,14 +5,18 @@
 
 <body>
 <div id="wrap">
-    <div class="navbar">
+    <div class="navbar" >
         <div class="container">
             <div class="row">
                 <div class="col-xs-12">
-                    <a class="no-decoration" href="/">
-                        <img src="/assets/avatar.svg" width="30px" height="30px"
-                             style="margin-top:-8px;">
-                        Julia Schwarz
+                    <a class="no-decoration" href="/"  id="home_link" >
+                        <div style="display: inline-block">
+                            <img src="/assets/avatar.svg" id="avatar" width="30px" height="30px"
+                                 style="margin-top:-8px;">
+                            Julia Schwarz
+                        </div>
+
+
                     </a>
                 </div>
 
@@ -80,5 +84,24 @@
 
 </div>
 {% include footer.html %}
+
+<script>
+    $(window).load(function(){
+        var $avatar = $("#avatar");
+        var start_top = parseInt($avatar.css("margin-top"));
+        var bounce_height1 = 30;
+        var bounce_height2 = 5;
+        var duration1 = 100;
+        var duration2 = 60;
+        $("#home_link").mouseenter(function(){
+            console.log("animate", start_top);
+            $avatar
+                    .animate({ "margin-top": start_top-bounce_height1}, duration1, "easeOutQuad")
+                    .animate({ "margin-top": start_top}, duration1, "easeInQuad")
+                    .animate({ "margin-top": start_top-bounce_height2}, duration2, "easeOutQuad")
+                    .animate({ "margin-top": start_top}, duration2, "easeInQuad");
+        });
+    });
+</script>
 </body>
 </html>
