@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# terminate in case of failur
+# terminate in case of failure
 # http://stackoverflow.com/questions/4381618/exit-a-script-on-error
 set -e 
 
