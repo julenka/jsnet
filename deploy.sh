@@ -5,7 +5,7 @@
 set -e 
 
 # http://unix.stackexchange.com/questions/12068/how-to-measure-time-of-program-execution-and-store-that-inside-a-variable
-START=$(date +%s.%N)
+START=$(date +%s)
 
 
 # scp -r  _site/* notjulie@notjulie.com:public_html/js_net
@@ -29,7 +29,7 @@ else
     exit 1
 fi
 
-END=$(date +%s.%N)
+END=$(date +%s)
 DIFF=$(echo "$END - $START" | bc)
 
 echo "deploy took ${DIFF} seconds"
