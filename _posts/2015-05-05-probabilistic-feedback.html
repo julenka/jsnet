@@ -5,9 +5,10 @@ category: publications
 icon: "assets/cards/probabilistic-feedback.jpg"
 authors: "Julia Schwarz, Jennifer Mankoff, Scott E. Hudson"
 proceedings: "In Proceedings of CHI '15, Honorable Mention for Best Paper"
-excerpt: "I built a system for user interfaces where inputs are uncertain (such as voice, touch, and gesture). The software not only tracks alternate possible inputs, but lets you pick between them.
+excerpt: "A probabilistic user interface architecture that not tracks probabilistic UI state, but communicates this uncertainty
+back to the user in a meaningful way.
 
-This is accomplished by tracking all possible interfaces, reducing the number of possible interfaces to a few exemplars, and fusing exemplars into a single interface that dynamically communicates uncertainty and allows for disambiguation."
+This is accomplished by tracking possible interfaces, reducing the number of possible interfaces to a few exemplars, and fusing exemplars to communicate uncertainty and allow for disambiguation."
 paper: "assets/probabilistic-feedback/schwarz-chi15-probabilisticfeedback.pdf"
 demo_video: "http://youtu.be/1SzLxofVWV8"
 header_image: "assets/probabilistic-feedback/probabilistic-feedback-splash.png"
@@ -15,77 +16,80 @@ citation: "Schwarz, J., Mankoff, J., Hudson, S., An Architecture for Generating 
 ---
 <div class="row">
     <div class="col-md-6">
-        <p><em>Normally, for these explanations I start with a paper summary. But the topic of uncertain user
-            interfaces requires a bit more context, so first I will provide some background.
+        <p><em>Normally I start with a paper summary. But the topic of uncertain user
+            interfaces requires a bit more context, so first some background.
         </em></p>
-        <p>
+        <p> <em>
             Current input handling systems provide effective techniques for modeling, tracking, interpreting,
             and acting on user input. However, new interaction technologies violate the standard assumption that
-            input is certain. Touch, speech recognition, gestural input, and sensors for context often produce
-            uncertain estimates of user inputs. Current systems tend to remove uncertainty early on (e.g. taking the most likely input), trying to fit
-            these uncertain user inputs into the cookie-cutter formulations of mice and keyboards.
-            Because these uncertain inputs are error-prone, we are forced to adapt our interfaces and behaviors to adjust to these
-            new input mechanisms by making larger buttons, speaking slowly, and carefully executing gestures.
+            input is certain. Touch, speech recognition, and gestural input often produce
+            uncertain estimates of user inputs. Current systems tend to remove uncertainty early on by using 
+            the most likely sensed input (e.g. taking the center of the touch area). As a result, we are 
+            forced to adapt by making larger buttons, speaking slowly, and carefully executing gestures.
+            </em>
         </p>
         <p>
+            <em>
             I believe that we shouldn't have to adapt our behaviors to suit our interfaces, and that instead interfaces should
-            adapt to us, taking into account information about our past behaviors, our preferences, and other contextual information to
-            make more intelligent predictions about our intended actions. Furthermore, I believe that in order to achieve this,
-            we need to fundamentally change the way our user interface systems are built to more easily allow for
-            incorporating likelihoods, context, user behavior, and predictive models.
+            adapt to us, taking into account information about our past behaviors and our preferences to
+            make better predictions. To achieve this
+            we need to fundamentally change the way our user interface systems are built. Our user interface systems
+            need to incorporate probabilistic reasoning.
+            </em>
         </p>
         <p>
-            To this end, I'm working on designing
-            a new architecture for user interface toolkits which tracks the likelihoods of alternate input interpretations and
-            interface states for as long as possible before making a decision. A central goal of my work is
-            to keep the programming model for developers simple: developers shouldn't have to think probabilistically to use
-            the toolkit, but should be able to take advantage of incorporating context and user behavior.
+            <em>
+            For my PhD thesis I developed
+            a new architecture for user interface toolkits which incorporates probabilistic reasoning.
+            It tracks the likelihoods of alternate input interpretations and
+            interface states for as long as possible before making a decision.
+            </em>
+        </p>
+        <p>
+            <em>
+                This paper is the last of three research papers published as part of my thesis.
+            </em>
         </p>
     </div>
     <div class="col-md-6">
-        <iframe width="420" height="315" class="center-block img-responsive" style="height: 315px;" src="https://www.youtube.com/embed/1SzLxofVWV8" frameborder="0" allowfullscreen></iframe>
-        <div class="figure_caption top-spacing ">
-            <small>This video summary contains a demonstration of the capabilities of the framework as well as an explanation of the architecture. </small>
-        </div>
-    </div>
+            <img class="img-responsive center-block" 
+                src="{{site.baseurl}}/assets/probabilistic-feedback/nbest_gesture_420.gif">
+
+            <div class="top-spacing figure_caption bottom-spacing">
+                <small>Auto-correct demo. As I draw letters, a gesture recognizer tries to 
+                guess which shapes I drew. I can correct the recognizer by selecting an alternative. </small>
+            </div>        
+    </div>  
+    
 </div>
     <div class="row">
         <div class="col-md-6">
             <h3>Summary</h3>
             <p>
-                One challenge I ran into when implementing the demos for my <a href="{{site.baseurl}}/publications/2010/10/02/probabilistic-input/">
-                first paper</a> was that I found it difficult to
-                track that state of any user interface element that had more than two states. Because the input events were probabilistic,
-                it became difficult to manually track the likelihood of different states, especially as the state machines
-                became more complex. The aim of this paper was to extend and modify the initial architecture to
-                make it easy for developers to track the probabilistic state of user interface elements.
-                The key insight in this paper was to use  a Monte Carlo approach to maintain a
-                probabilistically accurate description of the user interface that can be used to make informed choices about
-                actions. Samples are used to approximate the distribution of possible inputs, possible interactor states that
-                result from inputs, and possible actions (callbacks and feedback) interactors may execute.
+                Increasingly natural, sensed, and touch-based input is being integrated into devices. Along the way, both custom and
+                more general solutions have been developed for dealing with the uncertainty that is associated with these forms of
+                input. However, it is difficult to provide dynamic, flexible, and continuous feedback about uncertainty using traditional
+                interactive infrastructure. Our contribution is a general architecture with the goal of providing support for continual
+                feedback about uncertainty.
             </p>
             <p>
-                Because each sample is certain, the developer can specify most of the behavior of interactors in a familiar,
-                non-probabilistic fashion. This approach retains all the advantages of maintaining information about uncertainty
-                while minimizing the need for the developer to work in probabilistic terms. This paper presents a working implementation
-                of our framework and illustrates the power of these techniques within a paint program that includes three
-                different kinds of uncertain input.
-            </p>
-            <p>
-                This is the second of three research papers (one is not yet published) that aim to lay
-                the foundations for a radically new user interface architecture built to handle uncertain user inputs. The
-                image above presents a diagram aiming to explain the architecture, however for a deeper understanding please
-                see the <a href="{{site.baseurl}}/assets/monte-carlo/schwarz-uist11-montecarlo.pdf">paper</a>.
+                Our architecture is based on prior work in modeling uncertainty using Monte Carlo sampling, and tracks multiple
+                interfaces – one for each plausible and differentiable sequence of input that the user may have intended. This paper
+                presents a method for reducing the number of alternative interfaces and fusing possible interfaces into a single
+                interface that both communicates uncertainty and allows for disambiguation. We demonstrate the value of this result
+                through a collection of 11 new and existing feedback techniques along with two applications demonstrating the use of
+                the feedback architecture.
             </p>
         </div>
-        <div class="col-md-6">
-            <img class="img-responsive center-block" src="{{site.baseurl}}/assets/monte-carlo/finger-gaussian-samples.png">
-            <div class="figure_caption top-spacing bottom-spacing ">
-                <small>A touch event is often represented as a single point, but in fact the finger is touching an entire area.
-                 My system approximates this distribution by generating a collection of individual touch events (black dots)
-                which are dispatched in parralel and results aggregated.</small>
-            </div>
-        </div>
+    <div class="col-md-6">
+        <img class="img-responsive center-block" 
+                src="{{site.baseurl}}/assets/probabilistic-feedback/snap_480p.gif">
+
+            <div class="top-spacing figure_caption bottom-spacing">
+                <small> Smart snap. As I draw lines and shapes, the app predicts possible targets to snap to
+                and gives me the option to choose a prediction. Of course, I can ignore these suggestions if I wish. </small>
+            </div>  
+    </div>
     </div>
 
 
