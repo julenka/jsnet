@@ -1,0 +1,44 @@
+---
+layout: post
+title: "PhD Thesis: Monte Carlo Methods for Managing Uncertain User Interfaces"
+category: publications
+icon: "assets/cards/thesis.jpg"
+authors: "Julia Schwarz"
+proceedings: "PhD Thesis, Carnegie Mellon University"
+excerpt: "Describes a probabilistic user interface architecture that uses a monte carlo approach to track
+alternate input interpretations "
+paper: "assets/dissertation/SchwarzJuliaPhdThesis.pdf"
+talk_video: "https://youtu.be/axWvbTodO0g"
+citation: "Schwarz, J., 2015. Monte Carlo Methods for Managing Uncertain User Interfaces. Carnegie Mellon University."
+---
+<div class="row">
+    <div class="col-md-6">
+        <h3>Summary</h3>
+        <p>
+        Current user interface toolkits provide effective techniques for acting on user input. How- ever, many input handling systems make the assumption that all input events are certain, and are not built to handle ambiguity such as multiple possible inputs from a recognizer. This is unfortunately at odds with recent interaction trends towards voice, gesture and touch, all of which come with a great deal of uncertainty.
+        </p>
+        <p>
+        This dissertation presents a new user interface architecture that treats user input as an uncertain process, approximates the probability distribution over possible interfaces using Monte Carlo sampling, and enables interface developers to easily build probabilistic user interfaces without needing to think probabilistically. 
+        </p>
+        <p>
+        This architecture is embodied in the JULIA toolkit: a JavaScript User interface Library for tracking Interface Alternatives. To demonstrate the versatility and power of this architecture, the dissertation presents a collection of applications and interaction techniques built using the JULIA toolkit. This architecture provides the foundation for a new era of nondeterministic user interfaces that leverage probabilistic models to better infer user intent.
+        </p>
+        <h3>Understanding the Architecture</h3>
+        <p> I've been told that Figure 1 provides the best overview of the approach in the toolkit. Next, I'd suggest watching <a href="https://youtu.be/axWvbTodO0g">my talk</a>. Finally, my <a href="{{site.baseurl}}/publications/2015/05/05/probabilistic-feedback/">probabilistic feedback paper</a> provides
+        a concise architecture overview that I'd recommend readin. 
+        </p>
+        <p>If you have questions about the architecture, please don't hesitate to email me. My address is
+        <em>julia.schwarz at cs.cmu.edu</em>.</p>
+    </div>
+    <div class="col-md-6">
+            <img class="img-responsive center-block" 
+                src="{{site.baseurl}}/assets/dissertation/monte-carlo-architecture.png">
+
+            <div class="top-spacing figure_caption bottom-spacing">
+                <small>Figure 1. Overview of how the JULIA toolkit dispatches an input event, manages state, and renders feedback to the user when a user does something. </small>
+            </div>        
+    </div>  
+    
+</div>  
+
+
