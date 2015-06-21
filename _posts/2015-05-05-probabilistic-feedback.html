@@ -15,40 +15,41 @@ citation: "Schwarz, J., Mankoff, J., Hudson, S., An Architecture for Generating 
 ---
 <div class="row">
     <div class="col-md-6">
-        <p><em>Normally I start with a paper summary. But the topic of uncertain user
-            interfaces requires a bit more context, so first some background.
-        </em></p>
-        <p> <em>
-            Current input handling systems provide effective techniques for modeling, tracking, interpreting,
-            and acting on user input. However, new interaction technologies violate the standard assumption that
-            input is certain. Touch, speech recognition, and gestural input often produce
-            uncertain estimates of user inputs. Current systems tend to remove uncertainty early on by using 
-            the most likely sensed input (e.g. taking the center of the touch area). As a result, we are 
-            forced to adapt by making larger buttons, speaking slowly, and carefully executing gestures.
-            </em>
+        <p>
+            This paper is the third of three research papers published as part of my <a href="{{site.baseurl}}/publications/2015/06/05/dissertation/">PhD thesis</a>.
         </p>
         <p>
-            <em>
-            I believe that we shouldn't have to adapt our behaviors to suit our interfaces, and that instead interfaces should
-            adapt to us, taking into account information about our past behaviors and our preferences to
-            make better predictions. To achieve this
-            we need to fundamentally change the way our user interface systems are built. Our user interface systems
-            need to incorporate probabilistic reasoning.
-            </em>
+            Increasingly natural, sensed, and touch-based input is being integrated into devices. Along the way, both custom and
+            more general solutions have been developed for dealing with the uncertainty that is associated with these forms of
+            input. However, it is difficult to provide dynamic, flexible, and continuous feedback about uncertainty using traditional
+            interactive infrastructure. Our contribution is a general architecture with the goal of providing support for continual
+            feedback about uncertainty.
         </p>
         <p>
-            <em>
-            For my PhD thesis I developed
-            a new architecture for user interface toolkits which incorporates probabilistic reasoning.
-            It tracks the likelihoods of alternate input interpretations and
-            interface states for as long as possible before making a decision.
-            </em>
+            Our architecture  tracks multiple
+            interfaces – one for each plausible and differentiable sequence of input that the user may have intended. This paper
+            presents a method for reducing the number of alternative interfaces and fusing possible interfaces into a single
+            interface that both communicates uncertainty and allows for disambiguation. 
         </p>
         <p>
-            <em>
-                This paper is the last of three research papers published as part of my thesis.
-            </em>
+            Rather than tracking a single interface state (as is currently done in most UI toolkits), we keep track of several
+            possible interfaces. Each possible interface represents a state that the interface might be in.
+            The likelihood of each possible interface is updated based on user inputs and our knowledge of user behavior. Feedback to the user is rendered by first reducing the set of possible interfaces to a representative set, then fusing interface
+            alternatives into a single interface, which is then rendered.
         </p>
+        <img class="img-responsive center-block top-spacing bottom-spacing" 
+                src="{{site.baseurl}}/assets/probabilistic-feedback/probabilistic-feedback-splash.png">
+
+            <div class="top-spacing figure_caption bottom-spacing">
+                <small> We start with a distribution of possible interfaces, then identify differences between interfaces
+                by comparing objects in the interactor hierarchy. Interfaces are then reduced to  a small set of exemplars, and
+                fused into a single interface using one of a nubmer of strategies.</small>
+            </div>   
+        <p>
+            We demonstrate the value of our architecture
+            through a collection of new and existing feedback techniques. The figures on the right show a few example interactions our architecture enables. In each demonstration, several possible interfaces are tracked. These possible interfaces are then fused into a single interface and presented to the user.
+        </p>
+
     </div>
     <div class="col-md-6">
             <img class="img-responsive center-block" 
@@ -58,35 +59,11 @@ citation: "Schwarz, J., Mankoff, J., Hudson, S., An Architecture for Generating 
                 <small>Auto-correct. As I draw letters, a gesture recognizer tries to 
                 guess which shapes I drew. I can correct the recognizer by selecting an alternative. </small>
             </div>        
-    </div>  
-    
-</div>
-    <div class="row">
-        <div class="col-md-6">
-            <h3>Summary</h3>
-            <p>
-                Increasingly natural, sensed, and touch-based input is being integrated into devices. Along the way, both custom and
-                more general solutions have been developed for dealing with the uncertainty that is associated with these forms of
-                input. However, it is difficult to provide dynamic, flexible, and continuous feedback about uncertainty using traditional
-                interactive infrastructure. Our contribution is a general architecture with the goal of providing support for continual
-                feedback about uncertainty.
-            </p>
-            <p>
-                Our architecture is based on prior work in modeling uncertainty using Monte Carlo sampling, and tracks multiple
-                interfaces – one for each plausible and differentiable sequence of input that the user may have intended. This paper
-                presents a method for reducing the number of alternative interfaces and fusing possible interfaces into a single
-                interface that both communicates uncertainty and allows for disambiguation. We demonstrate the value of this result
-                through a collection of 11 new and existing feedback techniques along with two applications demonstrating the use of
-                the feedback architecture.
-            </p>
-        </div>
-    <div class="col-md-6">
-        <img class="img-responsive center-block" 
+            <img class="img-responsive center-block" 
                 src="{{site.baseurl}}/assets/probabilistic-feedback/snap_480p.gif">
 
             <div class="top-spacing figure_caption bottom-spacing">
                 <small> Smart snap. As I draw lines and shapes, the app predicts possible targets to snap to
                 and gives me the option to choose a prediction. Of course, I can ignore these suggestions if I wish. </small>
             </div>  
-    </div>
-</div>
+    </div>  

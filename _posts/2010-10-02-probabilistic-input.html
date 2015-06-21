@@ -9,56 +9,13 @@ excerpt: "The first of two papers presenting a radically new input dispatch syst
 Presents a general input dispatch architecture where interface elements are queried regarding their suitability to handle an event."
 demo_video: "http://youtu.be/R9hRj2dUky8"
 paper: "assets/prob-input/schwarz-uist10-prob-input.pdf"
-header_image: "assets/prob-input/prob-input-banner.jpeg"
 citation: "Schwarz, J., Hudson, S., Mankoff, J., A Robust and Flexible Framework for Handling Inputs with Uncertainty. In Proceedings of the 23rd Annual ACM Symposium on User Interface Software and Technology (New York, New York, October 3 – 6, 2010). UIST’10. ACM, New York, NY, 47 - 56."
 ---
 <div class="row">
     <div class="col-md-6">
-        <p><em>Normally I start with a paper summary. But the topic of uncertain user
-            interfaces requires a bit more context, so first some background.
-        </em></p>
-        <p> <em>
-            Current input handling systems provide effective techniques for modeling, tracking, interpreting,
-            and acting on user input. However, new interaction technologies violate the standard assumption that
-            input is certain. Touch, speech recognition, and gestural input often produce
-            uncertain estimates of user inputs. Current systems tend to remove uncertainty early on by using 
-            the most likely sensed input (e.g. taking the center of the touch area). As a result, we are 
-            forced to adapt by making larger buttons, speaking slowly, and carefully executing gestures.
-            </em>
-        </p>
         <p>
-            <em>
-            I believe that we shouldn't have to adapt our behaviors to suit our interfaces, and that instead interfaces should
-            adapt to us, taking into account information about our past behaviors and our preferences to
-            make better predictions. To achieve this
-            we need to fundamentally change the way our user interface systems are built. Our user interface systems
-            need to incorporate probabilistic reasoning.
-            </em>
-        </p>
-        <p>
-            <em>
-            For my PhD thesis I developed
-            a new architecture for user interface toolkits which incorporates probabilistic reasoning.
-            It tracks the likelihoods of alternate input interpretations and
-            interface states for as long as possible before making a decision.
-            </em>
-        </p>
-        <p>
-            <em>
-                This paper is the first of three research papers published as part of my thesis.
-            </em>
-        </p>
-    </div>
-    <div class="col-md-6">
-        <iframe width="420" height="315" class="center-block img-responsive" style="height: 315px;" src="//www.youtube.com/embed/R9hRj2dUky8?rel=0" frameborder="0" allowfullscreen></iframe>
-        <div class="figure_caption top-spacing ">
-            <small>This video summary contains a demonstration of the capabilities of the framework as well as an explanation of the architecture. </small>
-        </div>
-    </div>
-</div>
-<div class="row">
-    <div class="col-md-6">
-        <h3>Summary</h3>
+            This paper is the first of three research papers published as part of my <a href="{{site.baseurl}}/publications/2015/06/05/dissertation/">PhD thesis</a>.
+        </p>   
         <p>
             This paper presents a framework for handling input with uncertainty in a systematic, extensible, and easy to manipulate
             fashion. To illustrate this framework, the paper presents several traditional interactors which have been extended to
@@ -72,18 +29,16 @@ citation: "Schwarz, J., Hudson, S., Mankoff, J., A Robust and Flexible Framework
             possible target interactors, interpretation by interactors, generation of (uncertain) candidate actions to take,
             and a mediation process that decides (in a lazy fashion) which actions should become final.
         </p>
+        <h3>Acknowledgements</h3>
+        <p>
+        Special thanks to <a href="http://www.christianholz.net/" target="_blank">Christian Holz</a> for providing the <a href="http://www.christianholz.net/generalized_perceived_input_point_model.html" target="_blank">original artwork</a> used in the homepage icon for this project.
+        </p>
+        
     </div>
     <div class="col-md-6">
-        <div class="bottom-spacing top-spacing"></div>
-        <img class="img-responsive center-block" src="{{site.baseurl}}/assets/prob-input/fig1.png">
-        <div class="figure_caption top-spacing bottom-spacing ">
-            <small>Illustration of implicit disambiguation for touch input.
-                Left: Users presses down and moves diagonally, moving the icon.
-                Right: User presses down and moves horizontally, resizing the window instead.
-                When the user presses down, both interactors are equally likely to respond.
-                The user’s motion later disambiguates their intention and interactors in our framework respond appropriately.</small>
+        <iframe width="420" height="315" class="center-block img-responsive" style="height: 315px;" src="//www.youtube.com/embed/R9hRj2dUky8?rel=0" frameborder="0" allowfullscreen></iframe>
+        <div class="figure_caption top-spacing ">
+            <small>This video summary contains a demonstration of the capabilities of the framework as well as an explanation of the architecture. </small>
         </div>
-        <h3>Acknowledgements</h3>
-        Special thanks to <a href="http://www.christianholz.net/" target="_blank">Christian Holz</a> for providing the <a href="http://www.christianholz.net/generalized_perceived_input_point_model.html" target="_blank">original artwork</a> used in the homepage icon for this project.
     </div>
 </div>

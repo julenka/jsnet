@@ -5,90 +5,62 @@ category: publications
 icon: "assets/cards/monte-carlo2.jpg"
 authors: "Julia Schwarz, Jennifer Mankoff, Scott E. Hudson, Andy Wilson"
 proceedings: "In Proceedings of UIST '11"
-excerpt: "The second of two papers presenting a radically new input dispatch system for handling inputs with uncertainty (e.g. voice, touch, gesture).
+excerpt: "The second of three papers presenting a radically new input dispatch system for handling inputs with uncertainty (e.g. voice, touch, gesture).
 Tracks the likelihood of interface alternatives by deterministically simulating hundreds of input alternatives and aggregating results.
 This allows develpers to build uncertain interfaces without having to think probabilistically."
 paper: "assets/monte-carlo/schwarz-uist11-montecarlo.pdf"
 demo_video: "https://www.youtube.com/watch?v=vW15T1wDcGQ"
-header_image: "assets/monte-carlo/monte-carlo-banner2.jpeg"
 citation: "Schwarz, J., Mankoff, J., Hudson, S., Monte Carlo Methods for Managing Interactive State, Action and Feedback Under Uncertainty. In Proceedings of 24th Annual ACM Symposium on User Interface Software and Technology (Santa Barbara, California, October 16-19, 2011). UIST ’11. ACM, New York, NY, 235 - 244."
 ---
 <div class="row">
     <div class="col-md-6">
-        <p><em>Normally I start with a paper summary. But the topic of uncertain user
-            interfaces requires a bit more context, so first some background.
-        </em></p>
-        <p> <em>
-            Current input handling systems provide effective techniques for modeling, tracking, interpreting,
-            and acting on user input. However, new interaction technologies violate the standard assumption that
-            input is certain. Touch, speech recognition, and gestural input often produce
-            uncertain estimates of user inputs. Current systems tend to remove uncertainty early on by using 
-            the most likely sensed input (e.g. taking the center of the touch area). As a result, we are 
-            forced to adapt by making larger buttons, speaking slowly, and carefully executing gestures.
-            </em>
+        <p>
+            This paper is the second of three research papers published as part of my <a href="{{site.baseurl}}/publications/2015/06/05/dissertation/">PhD thesis</a>.
         </p>
         <p>
-            <em>
-            I believe that we shouldn't have to adapt our behaviors to suit our interfaces, and that instead interfaces should
-            adapt to us, taking into account information about our past behaviors and our preferences to
-            make better predictions. To achieve this
-            we need to fundamentally change the way our user interface systems are built. Our user interface systems
-            need to incorporate probabilistic reasoning.
-            </em>
+            One challenge I ran into when implementing the demos for my <a href="{{site.baseurl}}/publications/2010/10/02/probabilistic-input/">
+            first paper</a> was that I found it difficult to
+            track that state of any user interface element that had more than two states.  The aim of this paper was to modify the initial architecture to
+            make it easy for developers to track the probabilistic state of user interface elements.
         </p>
         <p>
-            <em>
-            For my PhD thesis I developed
-            a new architecture for user interface toolkits which incorporates probabilistic reasoning.
-            It tracks the likelihoods of alternate input interpretations and
-            interface states for as long as possible before making a decision.
-            </em>
+            The key insight in this paper was to use  a Monte Carlo approach to maintain a
+            probabilistically accurate description of the user interface that can be used to make informed choices about
+            actions. Samples are used to approximate the distribution of possible inputs, possible interactor states that
+            result from inputs, and possible actions (callbacks and feedback) interactors may execute.
         </p>
         <p>
-            <em>
-                This paper is the second of three research papers published as part of my thesis.
-            </em>
+            For example, a touch event is often represented as a single point, but in fact the finger is touching an entire area. My system approximates this distribution by generating a collection of individual touch events (Figure 2).
         </p>
+            <img class="img-responsive center-block top-spacing" src="{{site.baseurl}}/assets/monte-carlo/finger-gaussian-samples.png">
+            <div class="figure_caption top-spacing bottom-spacing ">
+                <small>Figure 1. A single touch is 
+                modeled using a cloud of possible touch events. The system simulates what might happen to each possible
+                event to decide what to do next.
+                </small>
+            </div>
+        <p>
+            Because each sample is certain, the developer can specify most of the behavior of interactors in a familiar,
+            non-probabilistic fashion. This approach retains all the advantages of maintaining information about uncertainty
+            while minimizing the need for the developer to work in probabilistic terms. This paper presents a working implementation
+            of our framework and illustrates the power of these techniques within a paint program that includes three
+            different kinds of uncertain input.
+        </p>
+        
+
     </div>
     <div class="col-md-6">
-        <iframe width="420" height="315" class="center-block img-responsive" style="height: 315px;" src="//www.youtube.com/embed/vW15T1wDcGQ?rel=0" frameborder="0" allowfullscreen></iframe>
+        <img class="img-responsive center-block" src="{{site.baseurl}}/assets/monte-carlo/monte-carlo-banner2.jpeg">
+            <div class="figure_caption top-spacing bottom-spacing ">
+                <small>Probabilistic input events are sampled to produce a collection of possible input events. Each input event is dispatched and interface state is updated. Interface updated, creates a collection of possible actions. These actions are then resolved according to a configurable set of rules.
+                </small>
+            </div>
+        <iframe width="420" height="315" class="center-block img-responsive top-spacing" style="height: 315px;" src="//www.youtube.com/embed/vW15T1wDcGQ?rel=0" frameborder="0" allowfullscreen></iframe>
         <div class="figure_caption top-spacing ">
             <small>This video summary contains a demonstration of the capabilities of the framework as well as an explanation of the architecture. </small>
         </div>
     </div>
 </div>
-    <div class="row">
-        <div class="col-md-6">
-            <h3>Summary</h3>
-            <p>
-                One challenge I ran into when implementing the demos for my <a href="{{site.baseurl}}/publications/2010/10/02/probabilistic-input/">
-                first paper</a> was that I found it difficult to
-                track that state of any user interface element that had more than two states. Because the input events were probabilistic,
-                it became difficult to manually track the likelihood of different states, especially as the state machines
-                became more complex. The aim of this paper was to extend and modify the initial architecture to
-                make it easy for developers to track the probabilistic state of user interface elements.
-                The key insight in this paper was to use  a Monte Carlo approach to maintain a
-                probabilistically accurate description of the user interface that can be used to make informed choices about
-                actions. Samples are used to approximate the distribution of possible inputs, possible interactor states that
-                result from inputs, and possible actions (callbacks and feedback) interactors may execute.
-            </p>
-            <p>
-                Because each sample is certain, the developer can specify most of the behavior of interactors in a familiar,
-                non-probabilistic fashion. This approach retains all the advantages of maintaining information about uncertainty
-                while minimizing the need for the developer to work in probabilistic terms. This paper presents a working implementation
-                of our framework and illustrates the power of these techniques within a paint program that includes three
-                different kinds of uncertain input.
-            </p>
-            
-        </div>
-        <div class="col-md-6">
-            <img class="img-responsive center-block" src="{{site.baseurl}}/assets/monte-carlo/finger-gaussian-samples.png">
-            <div class="figure_caption top-spacing bottom-spacing ">
-                <small>A touch event is often represented as a single point, but in fact the finger is touching an entire area.
-                 My system approximates this distribution by generating a collection of individual touch events (black dots)
-                which are dispatched in parralel and results aggregated.</small>
-            </div>
-        </div>
-    </div>
+
 
 
