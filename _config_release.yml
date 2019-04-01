@@ -1,8 +1,8 @@
 # Site settings
 title: Julia Schwarz
 description: "Julia Schwarz portfolio and personal website"
-baseurl: "http://juliaschwarz.net"
-url: "http://juliaschwarz.net"
+baseurl: "https://juliaschwarz.net"
+url: "https://juliaschwarz.net"
 
 # Build settings
 markdown: kramdown
