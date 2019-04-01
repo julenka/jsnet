@@ -24,6 +24,7 @@ elif [[ "${1}" == "release" ]]
 
     echo 'deploying release...'
     rsync -rav -e ssh _site/* notjulie@notjulie.com:public_html/notjulie
+    rsync -rav -e ssh .htaccess notjulie@notjulie.com:public_html/notjulie/.htaccess
 else
     echo "${0} [staging|release]"
     exit 1
