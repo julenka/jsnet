@@ -10,7 +10,7 @@ I followed https://help.github.com/en/articles/using-a-custom-domain-with-github
 
 1. [Add the custom domain to github pages](https://help.github.com/en/articles/adding-or-removing-a-custom-domain-for-your-github-pages-site). I updated the github pages config to point to juliaschwarz.net. This just updates a file called CNAME
 
-2. [Set up the apex domain juliaschwarz.net](https://help.github.com/en/articles/setting-up-an-apex-domain). I updated my A record to point to the following addresses
+2. [Set up the apex domain juliaschwarz.net](https://help.github.com/en/articles/setting-up-an-apex-domain). I updated my A record "@" entry to point to the following addresses
 
     185.199.108.153
     185.199.109.153
